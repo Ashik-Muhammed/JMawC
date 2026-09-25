@@ -1,0 +1,43 @@
+@import "./fonts.css";
+@import "tailwindcss";
+@import "./theme.css";
+
+@layer base {
+  * {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  html {
+    font-family: var(--font-sans);
+    color: #000000;
+    background-color: #FFFFFF;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f7f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
