@@ -3,12 +3,12 @@ import Logo from './Logo';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-black/8 pt-20 pb-12 text-[#6F6F6F]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+    <footer className="bg-white border-t border-black/8 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12 text-[#6F6F6F]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-black/8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-black/8">
           {/* Brand Info */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="sm:col-span-2 lg:col-span-2 space-y-5 sm:space-y-6">
             <Logo size="lg" />
             <p className="text-sm leading-relaxed max-w-sm text-[#6F6F6F]">
               Preserving thousands of years of classical Kerala Ayurvedic science. Dedicated to genuine cellular rejuvenation, restorative stillness, and individual constitutional harmony.

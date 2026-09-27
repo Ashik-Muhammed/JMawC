@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://jayamahesh.web.app/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Hero Sanctuary Ambiance -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_hero_sanctuary_1790273136594.jpg</image:loc>
+      <image:title>Jayamahesh Ayurveda Sanctuary in Parassala, Kerala</image:title>
+      <image:caption>Traditional Kerala Ayurvedic sanctuary grounds and medicinal garden at Jayamahesh Ayurveda</image:caption>
+    </image:image>
+
+    <!-- Clinic Emblem / Logo -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/logo.jpg</image:loc>
+      <image:title>Jayamahesh Ayurveda Official Emblem</image:title>
+      <image:caption>Jayamahesh Ayurveda and Wellness Clinic official logo and brand insignia</image:caption>
+    </image:image>
+
+    <!-- Pizhichil Therapy -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_pizhichil_therapy.jpg</image:loc>
+      <image:title>Pizhichil Royal Oil Stream Therapy</image:title>
+      <image:caption>Authentic Kerala Pizhichil warm medicated oil stream rejuvenation therapy</image:caption>
+    </image:image>
+
+    <!-- Dhara Therapy -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_dhara_therapy.jpg</image:loc>
+      <image:title>Dhara Continuous Medicated Stream</image:title>
+      <image:caption>Takradhara and Ksheeradhara continuous cooling stream therapy for Pitta harmony</image:caption>
+    </image:image>
+
+    <!-- Shirovasthi Therapy -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_shirovasthi_therapy.jpg</image:loc>
+      <image:title>Shirovasthi Cranial Medicated Oil Reservoir</image:title>
+      <image:caption>Classical Shirovasthi cylindrical cap therapy for cranial nervous restoration</image:caption>
+    </image:image>
+
+    <!-- Abhyangam Therapy -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_abhyangam_therapy.jpg</image:loc>
+      <image:title>Abhyangam Synchronized Herbal Body Massage</image:title>
+      <image:caption>Two-therapist rhythmic full-body Abhyangam with authentic warm medicated oils</image:caption>
+    </image:image>
+
+    <!-- Kizhi Therapy -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_kizhi_pain_therapy_1790273225926.jpg</image:loc>
+      <image:title>Kizhi Warm Herbal Bolus Therapy</image:title>
+      <image:caption>Ela Kizhi and Podikizhi warm botanical poultice therapy for joint pain and stiffness</image:caption>
+    </image:image>
+
+    <!-- Kadivasthi Therapy -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_kadivasthi_therapy.jpg</image:loc>
+      <image:title>Kadivasthi Lumbar Oil Reservoir Therapy</image:title>
+      <image:caption>Herbal dough dam retention of warm medicated oil over the lumbosacral spine</image:caption>
+    </image:image>
+
+    <!-- Shirodhara Therapy -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_shirodhara_therapy_1790273156341.jpg</image:loc>
+      <image:title>Shirodhara Meditative Third-Eye Stream</image:title>
+      <image:caption>Rhythmic streaming of warm medicated oil over the forehead for insomnia and anxiety relief</image:caption>
+    </image:image>
+
+    <!-- Doctors & Therapists -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/dr_jayalekshmi.jpg</image:loc>
+      <image:title>Dr. Jayalekshmi (M.D, B.A.M.S) - Senior Ayurvedic Doctor</image:title>
+      <image:caption>Chief Physician at Jayamahesh Ayurveda, specialist in Nadi Pariksha and classical medicine</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/therapist_maya.jpg</image:loc>
+      <image:title>Maya - Senior Ayurvedic Therapist</image:title>
+      <image:caption>Classical Ayurvedic practitioner specializing in Shirodhara and Abhyangam therapies</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/therapist_rajalekshmi.jpg</image:loc>
+      <image:title>Rajalekshmi - Senior Ayurvedic Therapist</image:title>
+      <image:caption>Classical practitioner specializing in Pizhichil, Kizhi, and Kadivasthi spinal treatments</image:caption>
+    </image:image>
+  </url>
+</urlset>

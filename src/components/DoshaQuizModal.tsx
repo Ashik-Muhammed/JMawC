@@ -142,13 +142,13 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
     >
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-10 border border-black/10">
+      <div className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl p-5 sm:p-8 md:p-10 border border-black/10 max-h-[90vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 rounded-full hover:bg-stone-100 text-stone-600 transition-colors"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full hover:bg-stone-100 text-stone-600 transition-colors"
           aria-label="Close modal"
         >
           <X size={20} />
@@ -157,9 +157,9 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
         {!result ? (
           <div>
             {/* Header */}
-            <div className="mb-8">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs uppercase tracking-[0.2em] text-[#0B823D] font-medium flex items-center gap-1.5">
+            <div className="mb-6 sm:mb-8 pr-8">
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#0B823D] font-medium flex items-center gap-1.5">
                   <Sparkles size={14} />
                   Prakriti Constitution Explorer
                 </span>
@@ -167,24 +167,24 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
                   Question {currentStep + 1} of {questions.length}
                 </span>
               </div>
-              <h3 className="font-serif text-3xl font-normal text-black">
+              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-black">
                 {questions[currentStep].title}
               </h3>
-              <p className="text-sm text-[#6F6F6F] mt-1">
+              <p className="text-xs sm:text-sm text-[#6F6F6F] mt-1">
                 {questions[currentStep].subtitle}
               </p>
             </div>
 
             {/* Options */}
-            <div className="space-y-3.5">
+            <div className="space-y-2.5 sm:space-y-3.5">
               {questions[currentStep].options.map((option, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleSelectOption(option.dosha)}
-                  className="w-full text-left p-5 rounded-2xl border border-black/10 hover:border-black/40 hover:bg-stone-50/80 transition-all duration-200 group flex items-start justify-between cursor-pointer"
+                  className="w-full text-left p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-black/10 hover:border-black/40 hover:bg-stone-50/80 transition-all duration-200 group flex items-start justify-between cursor-pointer"
                 >
-                  <div className="pr-4">
-                    <p className="font-medium text-black group-hover:text-[#0B823D] transition-colors">
+                  <div className="pr-3 sm:pr-4">
+                    <p className="font-medium text-sm sm:text-base text-black group-hover:text-[#0B823D] transition-colors">
                       {option.label}
                     </p>
                     <p className="text-xs text-[#6F6F6F] mt-1 leading-relaxed">
@@ -199,7 +199,7 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
             </div>
 
             {/* Progress indicators */}
-            <div className="flex items-center gap-2 mt-8 justify-center">
+            <div className="flex items-center gap-2 mt-6 sm:mt-8 justify-center">
               {questions.map((_, i) => (
                 <span
                   key={i}
@@ -216,33 +216,33 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
           </div>
         ) : (
           /* Result Screen */
-          <div className="text-center py-4">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#0B823D]/10 text-[#0B823D] text-xs font-semibold uppercase tracking-widest mb-3">
+          <div className="text-center py-2 sm:py-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#0B823D]/10 text-[#0B823D] text-[10px] sm:text-xs font-semibold uppercase tracking-widest mb-2 sm:mb-3">
               Your Primary Doshic Imprint
             </span>
-            <h3 className="font-serif text-4xl sm:text-5xl font-normal text-black">
+            <h3 className="font-serif text-3xl sm:text-5xl font-normal text-black">
               Dominant {result} Prakriti
             </h3>
-            <p className="text-xs uppercase tracking-widest text-[#6F6F6F] mt-1">
+            <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#6F6F6F] mt-1">
               Governed by: {doshaProfiles[result].elements}
             </p>
 
-            <div className="mt-6 p-6 rounded-2xl bg-stone-50 border border-black/5 text-left space-y-4">
-              <p className="text-sm text-[#444444] leading-relaxed">
+            <div className="mt-5 sm:mt-6 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-stone-50 border border-black/5 text-left space-y-3.5 sm:space-y-4">
+              <p className="text-xs sm:text-sm text-[#444444] leading-relaxed">
                 {doshaProfiles[result].summary}
               </p>
 
               <div className="pt-3 border-t border-black/5">
-                <p className="text-xs uppercase tracking-wider text-[#6F6F6F] font-semibold">
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#6F6F6F] font-semibold">
                   Personal Sanctuary Recommendation:
                 </p>
-                <p className="font-serif text-lg text-black mt-0.5">
+                <p className="font-serif text-base sm:text-lg text-black mt-0.5">
                   {doshaProfiles[result].recommendedTherapy}
                 </p>
               </div>
 
               <div className="pt-2">
-                <p className="text-xs uppercase tracking-wider text-[#6F6F6F] font-semibold">
+                <p className="text-[10px] sm:text-xs uppercase tracking-wider text-[#6F6F6F] font-semibold">
                   Prescribed Daily Vedic Ritual:
                 </p>
                 <p className="text-xs text-[#555555] mt-0.5 leading-relaxed">
@@ -252,13 +252,13 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mt-6 sm:mt-8">
               <button
                 onClick={() => {
                   onClose();
                   onSelectTreatment(doshaProfiles[result].recommendedTherapy);
                 }}
-                className="w-full sm:w-auto rounded-full px-8 py-3.5 bg-black text-white text-sm font-medium hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                className="w-full sm:w-auto rounded-full px-6 sm:px-8 py-3.5 bg-black text-white text-xs sm:text-sm font-medium hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
               >
                 <span>Book Prescribed Protocol</span>
                 <ArrowRight size={16} />
@@ -266,7 +266,7 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
 
               <button
                 onClick={handleReset}
-                className="w-full sm:w-auto rounded-full px-5 py-3.5 bg-stone-100 hover:bg-stone-200 text-black text-sm font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto rounded-full px-5 py-3.5 bg-stone-100 hover:bg-stone-200 text-black text-xs sm:text-sm font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer"
               >
                 <RotateCcw size={14} />
                 <span>Retake Quiz</span>

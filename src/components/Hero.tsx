@@ -120,13 +120,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTherapies })
 
       {/* Hero Content Section (z-10) */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center text-center px-6 max-w-7xl mx-auto w-full pt-36 sm:pt-44 md:pt-48 pb-28 sm:pb-36"
+        className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-7xl mx-auto w-full pt-28 sm:pt-40 md:pt-48 pb-16 sm:pb-28 md:pb-36"
       >
+        {/* SEO Eyebrow Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-100/90 border border-black/8 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#0B823D] font-medium mb-4 sm:mb-6 animate-fade-rise">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#0B823D] animate-pulse" />
+          <span>Kerala Ayurveda Sanctuary</span>
+        </div>
+
         {/* Main Headline */}
-        {/* Styling: text-5xl sm:text-7xl md:text-8xl, max-w-7xl, font-normal, line height: 0.95, letter spacing: -2.46px */}
-        {/* Color: #000000 for main text, #6F6F6F for italic emphasized words ("silence," and "the eternal.") */}
         <h1
-          className="font-serif font-normal text-5xl sm:text-7xl md:text-8xl max-w-7xl text-[#000000] tracking-[-2.46px] leading-[0.98] animate-fade-rise"
+          className="font-serif font-normal text-4xl xs:text-5xl sm:text-7xl md:text-8xl max-w-7xl text-[#000000] tracking-[-1px] sm:tracking-[-2px] md:tracking-[-2.46px] leading-[1.05] sm:leading-[0.98] animate-fade-rise"
         >
           Healing awakened in{' '}
           <span className="italic text-[#6F6F6F] font-serif">silence,</span>
@@ -135,42 +139,40 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTherapies })
         </h1>
 
         {/* Description */}
-        {/* Styling: text-base sm:text-lg, max-w-2xl, mt-8, leading-relaxed, Color: #6F6F6F, Animation: animate-fade-rise-delay */}
-        <p className="text-base sm:text-lg max-w-2xl mt-8 sm:mt-9 leading-relaxed text-[#6F6F6F] font-sans font-normal animate-fade-rise-delay">
+        <p className="text-sm sm:text-base md:text-lg max-w-2xl mt-6 sm:mt-9 leading-relaxed text-[#6F6F6F] font-sans font-normal animate-fade-rise-delay">
           Rooted in authentic Kerala lineage, Jayamahesh Ayurveda and Wellness Clinic harmonizes body, mind, and spirit through classical Ayurvedic therapies—from restorative Pizhichil and Shirodhara to Kadivasthi and herbal Kizhi—guided by sacred botanical alchemy and tranquil care.
         </p>
 
-        {/* Hero CTA Button */}
-        {/* Styling: rounded-full, px-14 py-5, text-base, mt-12, Colors: black bg (#000000), white text (#FFFFFF), Hover: scale 1.03, Animation: animate-fade-rise-delay-2 */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-12 animate-fade-rise-delay-2">
+        {/* Hero CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-8 sm:mt-12 animate-fade-rise-delay-2 w-full sm:w-auto px-2 sm:px-0">
           <button
             onClick={onOpenBooking}
-            className="rounded-full px-14 py-5 text-base bg-[#000000] text-[#FFFFFF] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 font-medium cursor-pointer shadow-lg hover:shadow-2xl flex items-center gap-3 group"
+            className="w-full sm:w-auto justify-center rounded-full px-8 sm:px-14 py-4 sm:py-5 text-sm sm:text-base bg-[#000000] text-[#FFFFFF] hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 font-medium cursor-pointer shadow-lg hover:shadow-2xl flex items-center gap-3 group"
           >
             <span>Begin Your Healing Journey</span>
-            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1 shrink-0" />
           </button>
 
           <button
             onClick={onExploreTherapies}
-            className="rounded-full px-8 py-5 text-base bg-white/80 hover:bg-white text-black border border-black/10 hover:border-black/30 backdrop-blur-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-medium cursor-pointer"
+            className="w-full sm:w-auto justify-center rounded-full px-8 py-3.5 sm:py-5 text-sm sm:text-base bg-white/80 hover:bg-white text-black border border-black/10 hover:border-black/30 backdrop-blur-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 font-medium cursor-pointer"
           >
             Explore Therapies
           </button>
         </div>
 
         {/* Quiet Accents / Trust Indicators */}
-        <div className="mt-16 flex flex-wrap items-center justify-center gap-8 sm:gap-14 text-xs tracking-wider uppercase text-[#6F6F6F] animate-fade-rise-delay-2">
-          <div className="flex items-center gap-2">
-            <span className="text-[#0B823D] font-serif text-lg">✦</span>
+        <div className="mt-10 sm:mt-16 flex flex-wrap items-center justify-center gap-2.5 sm:gap-8 md:gap-14 text-[10px] sm:text-xs tracking-wider uppercase text-[#6F6F6F] animate-fade-rise-delay-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-stone-50/80 sm:bg-transparent border border-black/5 sm:border-none">
+            <span className="text-[#0B823D] font-serif text-base sm:text-lg">✦</span>
             <span>Nadi Pariksha (Pulse Reading)</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[#0B823D] font-serif text-lg">✦</span>
+          <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-stone-50/80 sm:bg-transparent border border-black/5 sm:border-none">
+            <span className="text-[#0B823D] font-serif text-base sm:text-lg">✦</span>
             <span>Authentic Kerala Medicated Oils</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[#0B823D] font-serif text-lg">✦</span>
+          <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-stone-50/80 sm:bg-transparent border border-black/5 sm:border-none">
+            <span className="text-[#0B823D] font-serif text-base sm:text-lg">✦</span>
             <span>Senior Classical Vaidyas</span>
           </div>
         </div>

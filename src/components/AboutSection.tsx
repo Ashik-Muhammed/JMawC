@@ -11,48 +11,48 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   onOpenDoshaQuiz,
 }) => {
   return (
-    <section id="about" className="py-28 bg-stone-50/60 border-y border-black/5">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+    <section id="about" className="py-16 sm:py-24 md:py-28 bg-stone-50/60 border-y border-black/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Intro Split Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Left Text Column */}
-          <div className="lg:col-span-7 space-y-6">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#6F6F6F] font-medium">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#6F6F6F] font-medium">
               Lineage &amp; Vaidyas
             </span>
-            <h2 className="font-serif text-4xl sm:text-6xl text-black font-normal tracking-tight leading-[1.05]">
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-black font-normal tracking-tight leading-[1.05]">
               Where ancient medicine meets unbroken{' '}
               <span className="italic text-[#6F6F6F] font-serif">stillness.</span>
             </h2>
-            <p className="text-base sm:text-lg text-[#6F6F6F] leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#6F6F6F] leading-relaxed">
               At Jayamahesh Ayurveda and Wellness Clinic, healing is not an industrial assembly line; it is a sacred pilgrimage back to biological equilibrium. Rooted in the authentic Ashtavaidya and classical traditions of Kerala, we practice time-tested Ayurveda in its unadulterated form.
             </p>
-            <p className="text-base text-[#6F6F6F] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#6F6F6F] leading-relaxed">
               Every therapeutic oil is prepared inside our traditional apothecaries—slow-simmered in copper cauldrons with mountain herbs, unpasteurized milk, and stone-pressed sesame base. Guided by pulse masters, each guest is treated not as a set of symptoms, but as an interplay of space, air, fire, water, and earth.
             </p>
 
             {/* Philosophy quote */}
-            <div className="p-6 rounded-2xl bg-white border border-black/5 shadow-sm italic text-[#333333] font-serif text-lg leading-relaxed relative">
-              <span className="text-4xl text-[#0B823D] leading-none absolute -top-3 left-4 font-serif">“</span>
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-black/5 shadow-sm italic text-[#333333] font-serif text-base sm:text-lg leading-relaxed relative">
+              <span className="text-3xl sm:text-4xl text-[#0B823D] leading-none absolute -top-3 left-4 font-serif">“</span>
               <p className="pt-2">
                 True health is not merely the absence of disease, but a joyful awareness where digestion is strong, tissues are nourished, emotions are clear, and the soul resides in peace.
               </p>
-              <p className="text-xs uppercase tracking-widest text-[#6F6F6F] not-italic font-sans mt-3 font-medium">
+              <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#6F6F6F] not-italic font-sans mt-3 font-medium">
                 — Sushruta Samhita, Sutrasthana
               </p>
             </div>
 
             {/* Action buttons */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 onClick={onOpenBooking}
-                className="rounded-full px-8 py-3.5 bg-black text-white text-sm font-medium hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-md"
+                className="w-full sm:w-auto text-center justify-center rounded-full px-8 py-3.5 bg-black text-white text-sm font-medium hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-md"
               >
                 Schedule Consultation
               </button>
               <button
                 onClick={onOpenDoshaQuiz}
-                className="rounded-full px-6 py-3.5 bg-white border border-black/15 text-black text-sm font-medium hover:border-black/40 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                className="w-full sm:w-auto text-center justify-center rounded-full px-6 py-3.5 bg-white border border-black/15 text-black text-sm font-medium hover:border-black/40 hover:scale-105 active:scale-95 transition-all cursor-pointer"
               >
                 Discover Your Dosha Profile
               </button>
@@ -60,30 +60,31 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           </div>
 
           {/* Right Image Composition */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-black/10">
+          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl border border-black/10">
               <img
                 src="/images/ayurveda_hero_sanctuary_1790273136594.jpg"
-                alt="Ayurveda Sanctuary Ambiance"
-                className="w-full h-[520px] object-cover"
+                alt="Jayamahesh Ayurveda Sanctuary and Medicinal Greenery in Parassala Kerala"
+                loading="lazy"
+                className="w-full h-[280px] xs:h-[360px] sm:h-[440px] lg:h-[520px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-xs uppercase tracking-widest text-[#A4E24A] font-medium">
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-white">
+                <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#A4E24A] font-medium">
                   The Healing Grounds
                 </span>
-                <p className="font-serif text-2xl font-normal mt-1">
+                <p className="font-serif text-xl sm:text-2xl font-normal mt-1">
                   Tranquil private pavilions surrounded by sacred medicinal greenery
                 </p>
               </div>
             </div>
 
-            {/* Floating Glass Pill Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-xl p-5 rounded-2xl shadow-xl border border-black/10 max-w-[240px] hidden sm:block">
+            {/* Responsive Tradition Badge */}
+            <div className="mt-3 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-6 bg-white/95 backdrop-blur-xl p-4 sm:p-5 rounded-2xl shadow-md sm:shadow-xl border border-black/10 sm:max-w-[240px]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0B823D]/10 flex items-center justify-center text-[#0B823D]">
-                  <Award size={20} />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0B823D]/10 flex items-center justify-center text-[#0B823D] shrink-0">
+                  <Award size={18} />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-black uppercase tracking-wider">
@@ -99,26 +100,27 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         </div>
 
         {/* Dedicated Doctors & Therapists Section */}
-        <div className="mt-24 pt-20 border-t border-black/10">
-          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs uppercase tracking-[0.25em] text-[#0B823D] font-medium mb-2">
+        <div className="mt-16 sm:mt-24 pt-12 sm:pt-20 border-t border-black/10">
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#0B823D] font-medium mb-2">
               Clinical Team &amp; Healers
             </span>
-            <h3 className="font-serif text-3xl sm:text-5xl text-black font-normal tracking-tight">
+            <h3 className="font-serif text-2xl sm:text-4xl md:text-5xl text-black font-normal tracking-tight">
               Our Doctors &amp; Practitioners
             </h3>
-            <p className="text-sm sm:text-base text-[#6F6F6F] mt-3 leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-[#6F6F6F] mt-2 sm:mt-3 leading-relaxed">
               Every therapeutic journey is medically supervised and personalized by certified Ayurvedic physicians and experienced traditional therapists.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Dr. Jayalekshmi */}
             <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-              <div className="relative h-80 w-full overflow-hidden bg-stone-100">
+              <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-stone-100">
                 <img
                   src="/images/dr_jayalekshmi.jpg"
-                  alt="Dr. Jayalekshmi (M.D, B.A.M.S)"
+                  alt="Dr. Jayalekshmi (M.D, B.A.M.S) - Senior Ayurvedic Physician & Nadi Pariksha Specialist Parassala"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
@@ -136,7 +138,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                   </h4>
                 </div>
               </div>
-              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow space-y-4">
                 <div>
                   <p className="text-xs uppercase tracking-wider text-[#0B823D] font-semibold mb-1">
                     Senior Ayurvedic Doctor &amp; Vaidya
@@ -154,10 +156,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
             {/* Maya */}
             <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-              <div className="relative h-80 w-full overflow-hidden bg-stone-100">
+              <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-stone-100">
                 <img
                   src="/images/therapist_maya.jpg"
-                  alt="Maya (Therapist)"
+                  alt="Maya - Classical Ayurvedic Therapist at Jayamahesh Clinic"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
@@ -175,7 +178,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                   </h4>
                 </div>
               </div>
-              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow space-y-4">
                 <div>
                   <p className="text-xs uppercase tracking-wider text-[#0B823D] font-semibold mb-1">
                     Senior Ayurvedic Therapist
@@ -193,10 +196,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
             {/* Rajalekshmi */}
             <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
-              <div className="relative h-80 w-full overflow-hidden bg-stone-100">
+              <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-stone-100">
                 <img
                   src="/images/therapist_rajalekshmi.jpg"
-                  alt="Rajalekshmi (Therapist)"
+                  alt="Rajalekshmi - Classical Ayurvedic Therapist at Jayamahesh Clinic"
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
@@ -214,7 +218,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                   </h4>
                 </div>
               </div>
-              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-grow space-y-4">
                 <div>
                   <p className="text-xs uppercase tracking-wider text-[#0B823D] font-semibold mb-1">
                     Senior Ayurvedic Therapist
@@ -233,12 +237,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         </div>
 
         {/* 4 Pillars of Excellence */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20 pt-16 border-t border-black/10">
-          <div className="p-6 rounded-2xl bg-white border border-black/5 hover:border-black/20 transition-colors">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-14 sm:mt-20 pt-10 sm:pt-16 border-t border-black/10">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-black/5 hover:border-black/20 transition-colors">
             <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B823D] flex items-center justify-center mb-4">
               <Leaf size={20} />
             </div>
-            <h3 className="font-serif text-xl font-normal text-black mb-2">
+            <h3 className="font-serif text-lg sm:text-xl font-normal text-black mb-2">
               72-Hour Herbal Decoctions
             </h3>
             <p className="text-xs text-[#6F6F6F] leading-relaxed">
@@ -246,11 +250,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-black/5 hover:border-black/20 transition-colors">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-black/5 hover:border-black/20 transition-colors">
             <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B823D] flex items-center justify-center mb-4">
               <HeartHandshake size={20} />
             </div>
-            <h3 className="font-serif text-xl font-normal text-black mb-2">
+            <h3 className="font-serif text-lg sm:text-xl font-normal text-black mb-2">
               Bespoke Prakriti Alignment
             </h3>
             <p className="text-xs text-[#6F6F6F] leading-relaxed">
@@ -258,11 +262,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-black/5 hover:border-black/20 transition-colors">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-black/5 hover:border-black/20 transition-colors">
             <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B823D] flex items-center justify-center mb-4">
               <ShieldCheck size={20} />
             </div>
-            <h3 className="font-serif text-xl font-normal text-black mb-2">
+            <h3 className="font-serif text-lg sm:text-xl font-normal text-black mb-2">
               Master Classical Vaidyas
             </h3>
             <p className="text-xs text-[#6F6F6F] leading-relaxed">
@@ -270,11 +274,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-black/5 hover:border-black/20 transition-colors">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white border border-black/5 hover:border-black/20 transition-colors">
             <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B823D] flex items-center justify-center mb-4">
               <Sparkles size={20} />
             </div>
-            <h3 className="font-serif text-xl font-normal text-black mb-2">
+            <h3 className="font-serif text-lg sm:text-xl font-normal text-black mb-2">
               Deep Sensory Stillness
             </h3>
             <p className="text-xs text-[#6F6F6F] leading-relaxed">

@@ -13,10 +13,14 @@
     background-color: #FFFFFF;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   body {
+    max-width: 100%;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   h1, h2, h3, .font-serif {

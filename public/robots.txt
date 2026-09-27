@@ -1,0 +1,6 @@
+# robots.txt for Jayamahesh Ayurveda & Wellness Clinic (https://jayamahesh.web.app/)
+User-agent: *
+Allow: /
+
+# Sitemap Index
+Sitemap: https://jayamahesh.web.app/sitemap.xml

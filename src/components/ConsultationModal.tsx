@@ -75,12 +75,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
     >
-      <div className="relative w-full max-w-xl bg-white rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-10 border border-black/10">
+      <div className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl p-5 sm:p-8 md:p-10 border border-black/10 max-h-[90vh] overflow-y-auto">
         <button
           onClick={handleResetAndClose}
-          className="absolute top-6 right-6 p-2 rounded-full hover:bg-stone-100 text-stone-600 transition-colors"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full hover:bg-stone-100 text-stone-600 transition-colors"
           aria-label="Close modal"
         >
           <X size={20} />
@@ -88,11 +88,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
         {!isSubmitted ? (
           <div>
-            <div className="mb-6">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#0B823D] font-medium flex items-center gap-1 mb-1">
+            <div className="mb-5 sm:mb-6 pr-8">
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#0B823D] font-medium flex items-center gap-1 mb-1">
                 <Sparkles size={14} /> Sanctuary Reservation
               </span>
-              <h3 className="font-serif text-3xl sm:text-4xl font-normal text-black">
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-black">
                 Reserve Your Consultation
               </h3>
               <p className="text-xs sm:text-sm text-[#6F6F6F] mt-1 leading-relaxed">
@@ -100,10 +100,10 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
+                <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
                   Full Name
                 </label>
                 <div className="relative">
@@ -114,7 +114,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-sm text-black focus:outline-none focus:border-black transition-colors"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors"
                   />
                 </div>
               </div>
@@ -122,7 +122,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               {/* Phone & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
                     Phone / WhatsApp
                   </label>
                   <div className="relative">
@@ -133,13 +133,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-sm text-black focus:outline-none focus:border-black transition-colors"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
                     Email Address
                   </label>
                   <div className="relative">
@@ -150,7 +150,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                       placeholder="name@domain.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-sm text-black focus:outline-none focus:border-black transition-colors"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors"
                     />
                   </div>
                 </div>
@@ -158,13 +158,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
               {/* Treatment Selection */}
               <div>
-                <label className="block text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
+                <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
                   Desired Therapy or Consultation
                 </label>
                 <select
                   value={formData.treatment}
                   onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-black/15 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
+                  className="w-full px-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
                 >
                   {therapiesList.map((t, idx) => (
                     <option key={idx} value={t.name}>
@@ -175,9 +175,9 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </div>
 
               {/* Date & Time Slot */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
                     Preferred Date
                   </label>
                   <div className="relative">
@@ -187,13 +187,13 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                       required
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-sm text-black focus:outline-none focus:border-black transition-colors"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
+                  <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
                     Preferred Time Slot
                   </label>
                   <div className="relative">
@@ -201,7 +201,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     <select
                       value={formData.timeSlot}
                       onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
+                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
                     >
                       {timeSlots.map((ts, i) => (
                         <option key={i} value={ts}>
@@ -215,7 +215,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
               {/* Health Notes */}
               <div>
-                <label className="block text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
+                <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
                   Health Context or Key Concerns (Optional)
                 </label>
                 <textarea
@@ -223,7 +223,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   placeholder="e.g. chronic backache, sleep issues, digestive sluggishness..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-black/15 text-sm text-black focus:outline-none focus:border-black transition-colors resize-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors resize-none"
                 />
               </div>
 
@@ -231,7 +231,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full rounded-full py-4 bg-black text-white text-sm font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-lg"
+                  className="w-full rounded-full py-3.5 sm:py-4 bg-black text-white text-sm font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-lg"
                 >
                   Confirm Sanctuary Reservation
                 </button>
@@ -240,24 +240,24 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
           </div>
         ) : (
           /* Confirmation State */
-          <div className="text-center py-6">
-            <div className="w-16 h-16 rounded-full bg-emerald-50 text-[#0B823D] mx-auto flex items-center justify-center mb-4">
-              <CheckCircle2 size={36} />
+          <div className="text-center py-4 sm:py-6">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-50 text-[#0B823D] mx-auto flex items-center justify-center mb-4">
+              <CheckCircle2 size={32} />
             </div>
 
             <span className="text-xs uppercase tracking-[0.2em] text-[#0B823D] font-semibold">
               Reservation Confirmed
             </span>
-            <h3 className="font-serif text-3xl sm:text-4xl text-black font-normal mt-1">
+            <h3 className="font-serif text-2xl sm:text-4xl text-black font-normal mt-1">
               Namaste, {formData.name}
             </h3>
 
-            <p className="text-sm text-[#6F6F6F] mt-2 max-w-md mx-auto">
+            <p className="text-xs sm:text-sm text-[#6F6F6F] mt-2 max-w-md mx-auto">
               Your consultation request has been received by our clinic coordinators. Our senior Vaidya desk will reach out shortly.
             </p>
 
             {/* Reference Box */}
-            <div className="mt-6 p-5 rounded-2xl bg-stone-50 border border-black/5 max-w-md mx-auto text-left space-y-2 text-xs text-[#555555]">
+            <div className="mt-5 sm:mt-6 p-4 sm:p-5 rounded-2xl bg-stone-50 border border-black/5 max-w-md mx-auto text-left space-y-2 text-xs text-[#555555]">
               <div className="flex justify-between">
                 <span className="text-[#888888]">Reference Code:</span>
                 <span className="font-mono font-bold text-black">{bookingRef}</span>
@@ -273,7 +273,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             </div>
 
             {/* WhatsApp & Done Actions */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <a
                 href={`https://wa.me/919443861260?text=${encodeURIComponent(
                   `*Jayamahesh Ayurveda - Consultation Booking*\n` +

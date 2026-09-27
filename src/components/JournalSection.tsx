@@ -61,30 +61,30 @@ export const JournalSection: React.FC = () => {
   ];
 
   return (
-    <section id="journal" className="py-28 px-6 sm:px-8 max-w-7xl mx-auto w-full">
+    <section id="journal" className="py-16 sm:py-24 md:py-28 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full">
       {/* Section Header */}
-      <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16">
-        <span className="text-xs uppercase tracking-[0.25em] text-[#6F6F6F] font-medium mb-3">
+      <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+        <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#6F6F6F] font-medium mb-2 sm:mb-3">
           Vedic Journal
         </span>
-        <h2 className="font-serif text-4xl sm:text-6xl text-black font-normal tracking-tight">
+        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-black font-normal tracking-tight">
           Ayurvedic Wisdom &amp; Rituals
         </h2>
-        <p className="text-base text-[#6F6F6F] mt-4 leading-relaxed">
+        <p className="text-sm sm:text-base text-[#6F6F6F] mt-3 sm:mt-4 leading-relaxed">
           Essays on classical longevity, circadian biology, and herbal alchemy written by our Vaidyas to enrich your daily home sanctuary.
         </p>
       </div>
 
       {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         {articles.map((art) => (
           <article
             key={art.id}
-            className="group flex flex-col justify-between p-8 rounded-3xl bg-stone-50/70 border border-black/8 hover:bg-white hover:shadow-xl transition-all duration-300"
+            className="group flex flex-col justify-between p-5 sm:p-8 rounded-3xl bg-stone-50/70 border border-black/8 hover:bg-white hover:shadow-xl transition-all duration-300"
           >
             <div>
               {/* Meta */}
-              <div className="flex items-center justify-between text-xs text-[#6F6F6F] mb-4">
+              <div className="flex items-center justify-between text-xs text-[#6F6F6F] mb-3 sm:mb-4">
                 <span className="uppercase tracking-wider font-medium text-[#0B823D]">
                   {art.tag}
                 </span>
@@ -95,21 +95,21 @@ export const JournalSection: React.FC = () => {
               </div>
 
               {/* Title */}
-              <h3 className="font-serif text-2xl text-black font-normal leading-snug group-hover:text-[#0B823D] transition-colors">
+              <h3 className="font-serif text-xl sm:text-2xl text-black font-normal leading-snug group-hover:text-[#0B823D] transition-colors">
                 {art.title}
               </h3>
 
               {/* Excerpt */}
-              <p className="text-sm text-[#6F6F6F] mt-4 leading-relaxed line-clamp-3">
+              <p className="text-sm text-[#6F6F6F] mt-3 sm:mt-4 leading-relaxed line-clamp-3">
                 {art.excerpt}
               </p>
             </div>
 
             {/* Read Button */}
-            <div className="mt-8 pt-6 border-t border-black/5">
+            <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-black/5">
               <button
                 onClick={() => setSelectedArticle(art)}
-                className="text-xs uppercase tracking-wider text-black font-semibold flex items-center gap-1.5 hover:gap-2.5 transition-all cursor-pointer"
+                className="text-xs uppercase tracking-wider text-black font-semibold flex items-center gap-1.5 hover:gap-2.5 transition-all cursor-pointer py-1"
               >
                 <span>Read Editorial</span>
                 <ArrowRight size={14} />
@@ -124,23 +124,23 @@ export const JournalSection: React.FC = () => {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
         >
-          <div className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-10 border border-black/10 max-h-[85vh] overflow-y-auto">
+          <div className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl p-5 sm:p-8 md:p-10 border border-black/10 max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedArticle(null)}
-              className="absolute top-6 right-6 p-2 rounded-full hover:bg-stone-100 text-stone-600 transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 rounded-full hover:bg-stone-100 text-stone-600 transition-colors"
               aria-label="Close article"
             >
               <X size={20} />
             </button>
 
-            <div className="mb-6">
+            <div className="mb-6 pr-8">
               <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#0B823D] font-medium mb-2">
                 <BookOpen size={14} />
                 <span>{selectedArticle.tag} • {selectedArticle.readTime}</span>
               </div>
-              <h3 className="font-serif text-3xl sm:text-4xl text-black font-normal leading-tight">
+              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-black font-normal leading-tight">
                 {selectedArticle.title}
               </h3>
             </div>
@@ -153,10 +153,10 @@ export const JournalSection: React.FC = () => {
               ))}
             </div>
 
-            <div className="mt-8 pt-6 border-t border-black/10 flex justify-end">
+            <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-black/10 flex justify-end">
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="rounded-full px-6 py-2.5 bg-black text-white text-xs uppercase tracking-wider font-medium hover:bg-stone-800 transition-colors"
+                className="w-full sm:w-auto rounded-full px-6 py-2.5 bg-black text-white text-xs uppercase tracking-wider font-medium hover:bg-stone-800 transition-colors"
               >
                 Close Editorial
               </button>

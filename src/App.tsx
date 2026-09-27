@@ -96,15 +96,7 @@ export const App: React.FC = () => {
       />
 
       {/* Floating Action Button for Quick Booking on Mobile/Tablet */}
-      <div className="fixed bottom-6 right-6 z-40 sm:hidden">
-        <button
-          onClick={() => handleOpenBooking()}
-          className="flex items-center gap-2 rounded-full px-5 py-3 bg-black text-white text-xs font-semibold shadow-2xl hover:scale-105 active:scale-95 transition-transform"
-        >
-          <Calendar size={16} />
-          <span>Book Session</span>
-        </button>
-      </div>
+
     </div>
   );
 };
