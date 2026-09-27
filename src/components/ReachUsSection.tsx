@@ -377,12 +377,34 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                   <p className="text-sm text-[#6F6F6F] max-w-sm mx-auto leading-relaxed">
                     Your appointment request for <strong>{formData.service}</strong> has been logged. Our Ayurvedic coordinators will contact you at {formData.phone} today.
                   </p>
-                  <button
-                    onClick={() => setFormSubmitted(false)}
-                    className="rounded-full px-6 py-2.5 bg-stone-100 hover:bg-stone-200 text-black text-xs uppercase tracking-wider font-semibold mt-4 transition-colors"
-                  >
-                    Submit Another Inquiry
-                  </button>
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={`https://wa.me/919443861260?text=${encodeURIComponent(
+                        `*Jayamahesh Ayurveda - Appointment Request*\n` +
+                        `----------------------------------------\n` +
+                        `*Guest Name:* ${formData.name}\n` +
+                        `*Phone / WhatsApp:* ${formData.phone}\n` +
+                        `*Email:* ${formData.email}\n` +
+                        `*Therapy / Consultation:* ${formData.service}\n` +
+                        (formData.message ? `*Health Goals / Message:* ${formData.message}\n` : '') +
+                        `----------------------------------------\n` +
+                        `Please confirm availability for this session. Thank you!`
+                      )}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full px-6 py-3 bg-[#25D366] text-white text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-sm"
+                    >
+                      <MessageCircle size={16} />
+                      <span>Send Details via WhatsApp</span>
+                    </a>
+
+                    <button
+                      onClick={() => setFormSubmitted(false)}
+                      className="rounded-full px-6 py-3 bg-stone-100 hover:bg-stone-200 text-black text-xs uppercase tracking-wider font-semibold transition-colors"
+                    >
+                      Submit Another Inquiry
+                    </button>
+                  </div>
                 </div>
               )}
             </div>

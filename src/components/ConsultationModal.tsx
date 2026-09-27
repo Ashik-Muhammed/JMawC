@@ -96,7 +96,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 Reserve Your Consultation
               </h3>
               <p className="text-xs sm:text-sm text-[#6F6F6F] mt-1 leading-relaxed">
-                Connect with our Senior Vaidyas for authentic pulse diagnosis and bespoke Ayurvedic rejuvenation.
+                Consult with Dr. Jayalekshmi (M.D, B.A.M.S) and our clinical therapy team for authentic pulse diagnosis and bespoke Ayurvedic care.
               </p>
             </div>
 
@@ -275,7 +275,20 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             {/* WhatsApp & Done Actions */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href={`https://wa.me/919443861260?text=Hello%20Jayamahesh%20Ayurveda,%20I%20have%20booked%20reference%20${bookingRef}%20for%20${encodeURIComponent(formData.treatment)}`}
+                href={`https://wa.me/919443861260?text=${encodeURIComponent(
+                  `*Jayamahesh Ayurveda - Consultation Booking*\n` +
+                  `----------------------------------------\n` +
+                  `*Booking Reference:* ${bookingRef}\n` +
+                  `*Guest Name:* ${formData.name}\n` +
+                  `*Phone / WhatsApp:* ${formData.phone}\n` +
+                  `*Email:* ${formData.email}\n` +
+                  `*Therapy / Consultation:* ${formData.treatment}\n` +
+                  `*Preferred Date:* ${formData.date || 'Flexible / To be confirmed'}\n` +
+                  `*Preferred Time Slot:* ${formData.timeSlot}\n` +
+                  (formData.notes ? `*Health Goals / Notes:* ${formData.notes}\n` : '') +
+                  `----------------------------------------\n` +
+                  `Please confirm my consultation slot. Thank you!`
+                )}`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto rounded-full px-6 py-3 bg-[#25D366] text-white text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"

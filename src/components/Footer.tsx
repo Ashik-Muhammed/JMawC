@@ -15,9 +15,9 @@ export const Footer: React.FC = () => {
             </p>
             <div className="pt-2 text-xs text-[#888888]">
               <span className="font-semibold text-black uppercase tracking-wider block mb-1">
-                Ayurvedic Accreditation
+                Authentic Care
               </span>
-              <span>NABH Certified Classical Ayurvedic Healthcare Center</span>
+              <span>Traditional Kerala Classical Healthcare Sanctuary</span>
             </div>
           </div>
 

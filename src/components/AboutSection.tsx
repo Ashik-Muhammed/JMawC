@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ShieldCheck, Leaf, HeartHandshake, Award } from 'lucide-react';
+import { Sparkles, ShieldCheck, Leaf, HeartHandshake, Award, CheckCircle2 } from 'lucide-react';
 
 interface AboutSectionProps {
   onOpenBooking: () => void;
@@ -18,7 +18,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs uppercase tracking-[0.25em] text-[#6F6F6F] font-medium">
-              Lineage &amp; Sanctuary
+              Lineage &amp; Vaidyas
             </span>
             <h2 className="font-serif text-4xl sm:text-6xl text-black font-normal tracking-tight leading-[1.05]">
               Where ancient medicine meets unbroken{' '}
@@ -87,11 +87,145 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-black uppercase tracking-wider">
-                    NABH Accredited
+                    Classical Tradition
                   </p>
                   <p className="text-[11px] text-[#6F6F6F]">
-                    Authentic Traditional Ayurveda Care
+                    Authentic Kerala Ayurvedic Care
                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Dedicated Doctors & Therapists Section */}
+        <div className="mt-24 pt-20 border-t border-black/10">
+          <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs uppercase tracking-[0.25em] text-[#0B823D] font-medium mb-2">
+              Clinical Team &amp; Healers
+            </span>
+            <h3 className="font-serif text-3xl sm:text-5xl text-black font-normal tracking-tight">
+              Our Doctors &amp; Practitioners
+            </h3>
+            <p className="text-sm sm:text-base text-[#6F6F6F] mt-3 leading-relaxed">
+              Every therapeutic journey is medically supervised and personalized by certified Ayurvedic physicians and experienced traditional therapists.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Dr. Jayalekshmi */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+              <div className="relative h-80 w-full overflow-hidden bg-stone-100">
+                <img
+                  src="/images/dr_jayalekshmi.jpg"
+                  alt="Dr. Jayalekshmi (M.D, B.A.M.S)"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="glass-pill px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-black uppercase">
+                    Chief Physician
+                  </span>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="text-xs text-[#A4E24A] font-medium uppercase tracking-wider block">
+                    M.D, B.A.M.S
+                  </span>
+                  <h4 className="font-serif text-2xl font-normal text-white mt-0.5">
+                    Dr. Jayalekshmi
+                  </h4>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-[#0B823D] font-semibold mb-1">
+                    Senior Ayurvedic Doctor &amp; Vaidya
+                  </p>
+                  <p className="text-xs text-[#6F6F6F] leading-relaxed">
+                    Oversees clinical diagnosis, pulse evaluation (Nadi Pariksha), and custom medicinal formulations. Brings rigorous academic and clinical mastery to chronic disease management.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-black/5 flex items-center justify-between text-xs text-[#888888]">
+                  <span>Specialization:</span>
+                  <span className="font-medium text-black">Nadi Pariksha &amp; Medicine</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Maya */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+              <div className="relative h-80 w-full overflow-hidden bg-stone-100">
+                <img
+                  src="/images/therapist_maya.jpg"
+                  alt="Maya (Therapist)"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="glass-pill px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-black uppercase">
+                    Therapist
+                  </span>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="text-xs text-[#A4E24A] font-medium uppercase tracking-wider block">
+                    Classical Practitioner
+                  </span>
+                  <h4 className="font-serif text-2xl font-normal text-white mt-0.5">
+                    Maya
+                  </h4>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-[#0B823D] font-semibold mb-1">
+                    Senior Ayurvedic Therapist
+                  </p>
+                  <p className="text-xs text-[#6F6F6F] leading-relaxed">
+                    Master of deep rhythmic oleation therapies. Specializes in Shirodhara streaming, cranial Marma rejuvenation, and synchronized full-body Abhyangam massage.
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-black/5 flex items-center justify-between text-xs text-[#888888]">
+                  <span>Specialization:</span>
+                  <span className="font-medium text-black">Shirodhara &amp; Abhyangam</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Rajalekshmi */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+              <div className="relative h-80 w-full overflow-hidden bg-stone-100">
+                <img
+                  src="/images/therapist_rajalekshmi.jpg"
+                  alt="Rajalekshmi (Therapist)"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="glass-pill px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide text-black uppercase">
+                    Therapist
+                  </span>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="text-xs text-[#A4E24A] font-medium uppercase tracking-wider block">
+                    Classical Practitioner
+                  </span>
+                  <h4 className="font-serif text-2xl font-normal text-white mt-0.5">
+                    Rajalekshmi
+                  </h4>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-[#0B823D] font-semibold mb-1">
+                    Senior Ayurvedic Therapist
+                  </p>
+                  <p className="text-xs text-[#6F6F6F] leading-relaxed">
+                    Specialist in spinal restoration, warm herbal bolus compresses (Kizhi), royal continuous oil streaming (Pizhichil), and localized dough reservoirs (Kadivasthi).
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-black/5 flex items-center justify-between text-xs text-[#888888]">
+                  <span>Specialization:</span>
+                  <span className="font-medium text-black">Pizhichil, Kizhi &amp; Kadivasthi</span>
                 </div>
               </div>
             </div>
@@ -132,7 +266,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               Master Classical Vaidyas
             </h3>
             <p className="text-xs text-[#6F6F6F] leading-relaxed">
-              Led by Dr. Jaya Mahesh and senior practitioners with decades of deep clinical and pulse diagnostics mastery.
+              Led by Dr. Jayalekshmi (M.D, B.A.M.S) with deep clinical diagnostics and pulse-reading expertise.
             </p>
           </div>
 
