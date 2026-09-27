@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#studio" className="hover:text-black transition-colors">
-                  Therapy Studio
+                  Treatments
                 </a>
               </li>
               <li>
@@ -63,53 +63,77 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <a href="#studio" className="hover:text-black transition-colors">
-                  Shirodhara Protocol
+                  Pizhichil (Royal Oil Stream)
                 </a>
               </li>
               <li>
                 <a href="#studio" className="hover:text-black transition-colors">
-                  Panchakarma Detox (7-21 Days)
+                  Dhara Stream Therapy
                 </a>
               </li>
               <li>
                 <a href="#studio" className="hover:text-black transition-colors">
-                  Abhyanga Warm Anointment
+                  Shirovasthi Cranial Therapy
                 </a>
               </li>
               <li>
                 <a href="#studio" className="hover:text-black transition-colors">
-                  Elakizhi Leaf Compress
+                  Abhyangam Herbal Anointment
                 </a>
               </li>
               <li>
                 <a href="#studio" className="hover:text-black transition-colors">
-                  Nadi Pariksha Reading
+                  Kizhi Botanical Poultice
                 </a>
               </li>
               <li>
                 <a href="#studio" className="hover:text-black transition-colors">
-                  Rasayana Longevity
+                  Kadivasthi Lumbar Reservoir
+                </a>
+              </li>
+              <li>
+                <a href="#studio" className="hover:text-black transition-colors">
+                  Shirodhara Meditative Stream
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Sanctuary Hours & Contact */}
+          {/* Column 4: Sanctuary Contact & Location */}
           <div>
             <h4 className="font-serif text-lg text-black font-normal mb-4">
-              Stillness Hours
+              Sanctuary Contact
             </h4>
             <div className="space-y-2 text-sm">
-              <p>Monday – Sunday</p>
-              <p className="text-black font-medium">07:30 AM – 07:30 PM IST</p>
-              <p className="pt-2 text-xs text-[#888888]">
-                Advance appointments required to ensure patient tranquility.
+              <p className="text-black font-medium">Jayamahesh Ayurveda</p>
+              <p className="text-xs text-[#888888] leading-relaxed">
+                Temple Road, near Sree Mahadeva Temple,<br />
+                Parassala, Kerala 695502
               </p>
-              <p className="pt-3 text-black font-medium">
-                +91 98470 12345
+              <p className="pt-1 text-[11px] text-[#888888]">
+                Salem - Kochi - Kanyakumari Hwy<br />
+                Plus Code: 85R4+79Q
               </p>
-              <p className="text-xs text-[#888888]">
-                info@jayamaheshayurveda.com
+              <div className="pt-2">
+                <a
+                  href="tel:+919443861260"
+                  className="text-black font-medium hover:text-[#0B823D] transition-colors block"
+                >
+                  +91 94438 61260
+                </a>
+                <a
+                  href="https://wa.me/919443861260"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs text-[#0B823D] hover:underline block mt-0.5"
+                >
+                  WhatsApp: +91 94438 61260
+                </a>
+              </div>
+              <p className="text-xs text-[#888888] pt-1">
+                <a href="mailto:jayamaheshadmin@gmail.com" className="hover:text-black transition-colors">
+                  jayamaheshadmin@gmail.com
+                </a>
               </p>
             </div>
           </div>

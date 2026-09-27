@@ -12,11 +12,24 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
   onClose,
   preselectedTreatment = '',
 }) => {
+  const therapiesList = [
+    { name: 'General Vaidya Consultation & Pulse Reading', shortName: 'General Consultation' },
+    { name: 'Pizhichil (The Royal Medicated Oil Stream)', shortName: 'Pizhichil' },
+    { name: 'Dhara (Continuous Medicated Stream Therapy)', shortName: 'Dhara' },
+    { name: 'Shirovasthi (Cranial Medicated Oil Reservoir)', shortName: 'Shirovasthi' },
+    { name: 'Abhyangam (Synchronized Classical Herbal Anointment)', shortName: 'Abhyangam' },
+    { name: 'Kizhi (Warm Botanical Bolus Poultice Therapy)', shortName: 'Kizhi' },
+    { name: 'Kadivasthi (Sacred Lumbar Medicated Oil Pool)', shortName: 'Kadivasthi' },
+    { name: 'Shirodhara (Continuous Meditative Oil Stream)', shortName: 'Shirodhara' },
+  ];
+
+  const defaultTreatment = therapiesList[0].name;
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    treatment: preselectedTreatment || 'Pulse Diagnosis & General Vaidya Consultation',
+    treatment: preselectedTreatment || defaultTreatment,
     date: '',
     timeSlot: 'Morning (09:00 AM - 11:00 AM)',
     notes: '',
@@ -27,7 +40,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   useEffect(() => {
     if (preselectedTreatment) {
-      setFormData((prev) => ({ ...prev, treatment: preselectedTreatment }));
+      const match = therapiesList.find(
+        (t) =>
+          t.name.toLowerCase().includes(preselectedTreatment.toLowerCase()) ||
+          (t.shortName && t.shortName.toLowerCase() === preselectedTreatment.toLowerCase())
+      );
+      setFormData((prev) => ({ ...prev, treatment: match ? match.name : preselectedTreatment }));
     }
   }, [preselectedTreatment]);
 
@@ -51,15 +69,6 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     'Midday (11:30 AM - 01:30 PM)',
     'Afternoon (03:00 PM - 05:00 PM)',
     'Evening Twilight (05:30 PM - 07:30 PM)',
-  ];
-
-  const therapiesList = [
-    'Pulse Diagnosis & General Vaidya Consultation',
-    'Shirodhara (Mind Equanimity & Sleep Restoration)',
-    'Classical Panchakarma Detoxification',
-    'Abhyanga & Swedana (Herbal Oil Anointment)',
-    'Elakizhi & Podikizhi (Pain & Joint Therapy)',
-    'Rasayana & Ojas Vitality Rejuvenation',
   ];
 
   return (
@@ -121,7 +130,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98470 00000"
+                      placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-sm text-black focus:outline-none focus:border-black transition-colors"
@@ -158,8 +167,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                   className="w-full px-4 py-3 rounded-xl border border-black/15 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
                 >
                   {therapiesList.map((t, idx) => (
-                    <option key={idx} value={t}>
-                      {t}
+                    <option key={idx} value={t.name}>
+                      {t.name}
                     </option>
                   ))}
                 </select>
@@ -266,7 +275,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             {/* WhatsApp & Done Actions */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href={`https://wa.me/919847000000?text=Hello%20Jayamahesh%20Ayurveda,%20I%20have%20booked%20reference%20${bookingRef}%20for%20${encodeURIComponent(formData.treatment)}`}
+                href={`https://wa.me/919443861260?text=Hello%20Jayamahesh%20Ayurveda,%20I%20have%20booked%20reference%20${bookingRef}%20for%20${encodeURIComponent(formData.treatment)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto rounded-full px-6 py-3 bg-[#25D366] text-white text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"

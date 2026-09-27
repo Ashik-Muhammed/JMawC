@@ -13,7 +13,7 @@ export const StudioSection: React.FC<StudioSectionProps> = ({
 }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
-  const categories = ['All', 'Mind & Sleep', 'Detox', 'Pain Relief', 'Diagnostics', 'Longevity'];
+  const categories = ['All', 'Mind & Sleep', 'Pain Relief', 'Longevity'];
 
   const filtered = activeCategory === 'All'
     ? TREATMENTS

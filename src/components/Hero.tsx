@@ -137,7 +137,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTherapies })
         {/* Description */}
         {/* Styling: text-base sm:text-lg, max-w-2xl, mt-8, leading-relaxed, Color: #6F6F6F, Animation: animate-fade-rise-delay */}
         <p className="text-base sm:text-lg max-w-2xl mt-8 sm:mt-9 leading-relaxed text-[#6F6F6F] font-sans font-normal animate-fade-rise-delay">
-          Rooted in authentic Kerala lineage, Jayamahesh Ayurveda and Wellness Clinic harmonizes body, mind, and spirit through bespoke Panchakarma therapies, sacred herbal alchemy, and tranquil restorative care.
+          Rooted in authentic Kerala lineage, Jayamahesh Ayurveda and Wellness Clinic harmonizes body, mind, and spirit through classical Ayurvedic therapies—from restorative Pizhichil and Shirodhara to Kadivasthi and herbal Kizhi—guided by sacred botanical alchemy and tranquil care.
         </p>
 
         {/* Hero CTA Button */}

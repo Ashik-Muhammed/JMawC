@@ -25,7 +25,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               <span className="italic text-[#6F6F6F] font-serif">stillness.</span>
             </h2>
             <p className="text-base sm:text-lg text-[#6F6F6F] leading-relaxed">
-              At Jayamahesh Ayurveda and Wellness Clinic, healing is not an industrial assembly line; it is a sacred pilgrimage back to biological equilibrium. Rooted in the Ashtavaidya and Palakkad traditions of Kerala, we practice classical Ayurveda in its unadulterated form.
+              At Jayamahesh Ayurveda and Wellness Clinic, healing is not an industrial assembly line; it is a sacred pilgrimage back to biological equilibrium. Rooted in the authentic Ashtavaidya and classical traditions of Kerala, we practice time-tested Ayurveda in its unadulterated form.
             </p>
             <p className="text-base text-[#6F6F6F] leading-relaxed">
               Every therapeutic oil is prepared inside our traditional apothecaries—slow-simmered in copper cauldrons with mountain herbs, unpasteurized milk, and stone-pressed sesame base. Guided by pulse masters, each guest is treated not as a set of symptoms, but as an interplay of space, air, fire, water, and earth.

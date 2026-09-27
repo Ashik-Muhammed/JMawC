@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDoshaQuiz }
       // Simple active link spy
       const sections = [
         { id: 'home', name: 'Home' },
-        { id: 'studio', name: 'Studio' },
+        { id: 'studio', name: 'Treatments' },
         { id: 'about', name: 'About' },
         { id: 'journal', name: 'Journal' },
         { id: 'reach-us', name: 'Reach Us' },
@@ -45,7 +45,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDoshaQuiz }
 
   const menuItems = [
     { label: 'Home', href: '#home', key: 'Home' },
-    { label: 'Studio', href: '#studio', key: 'Studio' },
+    { label: 'Treatments', href: '#studio', key: 'Treatments' },
     { label: 'About', href: '#about', key: 'About' },
     { label: 'Journal', href: '#journal', key: 'Journal' },
     { label: 'Reach Us', href: '#reach-us', key: 'Reach Us' },
@@ -53,11 +53,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDoshaQuiz }
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.03)] border-b border-black/[0.04]'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? 'bg-white/90 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.03)] border-b border-black/[0.04]'
+        : 'bg-transparent'
+        }`}
     >
       <nav
         aria-label="Primary"
@@ -82,11 +81,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDoshaQuiz }
                 key={item.key}
                 href={item.href}
                 onClick={() => setActiveItem(item.key)}
-                className={`text-sm tracking-wide transition-colors duration-200 ${
-                  isActive || isHome
-                    ? 'text-[#000000] font-medium'
-                    : 'text-[#6F6F6F] hover:text-[#000000]'
-                }`}
+                className={`text-sm tracking-wide transition-colors duration-200 ${isActive || isHome
+                  ? 'text-[#000000] font-medium'
+                  : 'text-[#6F6F6F] hover:text-[#000000]'
+                  }`}
               >
                 {item.label}
               </a>
@@ -135,9 +133,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDoshaQuiz }
                   setActiveItem(item.key);
                   setMobileMenuOpen(false);
                 }}
-                className={`text-xl font-serif tracking-wide ${
-                  activeItem === item.key ? 'text-[#000000] font-normal' : 'text-[#6F6F6F]'
-                }`}
+                className={`text-xl font-serif tracking-wide ${activeItem === item.key ? 'text-[#000000] font-normal' : 'text-[#6F6F6F]'
+                  }`}
               >
                 {item.label}
               </a>
