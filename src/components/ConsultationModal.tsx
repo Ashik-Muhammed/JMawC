@@ -218,8 +218,40 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     setFormData((prev) => ({ ...prev, timeSlot: newTimeSlot }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const generateWhatsAppUrl = (ref: string) => {
+    return `https://wa.me/919443861260?text=${encodeURIComponent(
+      `*Jayamahesh Ayurveda - Consultation Booking*\n` +
+      `----------------------------------------\n` +
+      `*Booking Reference:* ${ref}\n` +
+      `*Guest Name:* ${formData.name}\n` +
+      `*Phone / WhatsApp:* ${formData.phone}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Therapy / Consultation:* ${formData.treatment}\n` +
+      `*Preferred Date:* ${formData.date || 'Flexible / To be confirmed'}\n` +
+      `*Preferred Time Slot:* ${formData.timeSlot}\n` +
+      (formData.notes ? `*Health Goals / Notes:* ${formData.notes}\n` : '') +
+      `----------------------------------------\n` +
+      `Please confirm my consultation slot. Thank you!`
+    )}`;
+  };
+
+  const generateEmailUrl = (ref: string) => {
+    const subject = `Consultation Booking: ${formData.treatment} - ${formData.name} [Ref: ${ref}]`;
+    const body =
+      `Jayamahesh Ayurveda & Wellness - Consultation Booking Request\n\n` +
+      `Booking Reference: ${ref}\n` +
+      `Guest Name: ${formData.name}\n` +
+      `Phone / WhatsApp: ${formData.phone}\n` +
+      `Email: ${formData.email}\n` +
+      `Therapy / Consultation: ${formData.treatment}\n` +
+      `Preferred Date: ${formData.date || 'Flexible / To be confirmed'}\n` +
+      `Preferred Time Slot: ${formData.timeSlot}\n` +
+      (formData.notes ? `Health Goals / Notes: ${formData.notes}\n\n` : '\n') +
+      `Please confirm my appointment slot. Thank you!`;
+    return `mailto:jayamaheshadmin@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const handleDirectSubmit = (channel: 'whatsapp' | 'email') => {
     const today = getTodayDateString();
 
     const nameErr = validateName(formData.name);
@@ -240,7 +272,19 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
     const refCode = 'JM-' + Math.floor(100000 + Math.random() * 900000);
     setBookingRef(refCode);
+
+    if (channel === 'whatsapp') {
+      window.open(generateWhatsAppUrl(refCode), '_blank');
+    } else {
+      window.location.href = generateEmailUrl(refCode);
+    }
+
     setIsSubmitted(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleDirectSubmit('whatsapp');
   };
 
   const handleResetAndClose = () => {
@@ -508,14 +552,30 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                 />
               </div>
 
-              {/* Submit CTA */}
+              {/* Direct Booking CTAs: WhatsApp & Email */}
               <div className="pt-2">
-                <button
-                  type="submit"
-                  className="w-full rounded-full py-3.5 sm:py-4 bg-black text-white text-sm font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-lg"
-                >
-                  Confirm Sanctuary Reservation
-                </button>
+                <span className="block text-[11px] uppercase tracking-wider text-stone-500 font-semibold mb-2">
+                  Direct Booking Confirmation Via:
+                </span>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    type="button"
+                    onClick={() => handleDirectSubmit('whatsapp')}
+                    className="flex-1 rounded-full py-3.5 sm:py-4 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                  >
+                    <MessageCircle size={18} />
+                    <span>Book via WhatsApp</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleDirectSubmit('email')}
+                    className="flex-1 rounded-full py-3.5 sm:py-4 bg-black hover:bg-stone-800 active:scale-[0.98] text-white text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                  >
+                    <Mail size={18} />
+                    <span>Book via Email</span>
+                  </button>
+                </div>
               </div>
             </form>
           </div>
@@ -527,14 +587,14 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             </div>
 
             <span className="text-xs uppercase tracking-[0.2em] text-[#0B823D] font-semibold">
-              Reservation Confirmed
+              Reservation Dispatched
             </span>
             <h3 className="font-serif text-2xl sm:text-4xl text-black font-normal mt-1">
               Namaste, {formData.name}
             </h3>
 
             <p className="text-xs sm:text-sm text-[#6F6F6F] mt-2 max-w-md mx-auto">
-              Your consultation request has been received by our clinic coordinators. Our senior Vaidya desk will reach out shortly.
+              Your consultation booking request has been forwarded directly to our clinic coordinators. Our senior Vaidya desk will confirm your appointment shortly.
             </p>
 
             {/* Reference Box */}
@@ -553,34 +613,29 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               </div>
             </div>
 
-            {/* WhatsApp & Done Actions */}
+            {/* WhatsApp, Email & Done Actions */}
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <a
-                href={`https://wa.me/919443861260?text=${encodeURIComponent(
-                  `*Jayamahesh Ayurveda - Consultation Booking*\n` +
-                  `----------------------------------------\n` +
-                  `*Booking Reference:* ${bookingRef}\n` +
-                  `*Guest Name:* ${formData.name}\n` +
-                  `*Phone / WhatsApp:* ${formData.phone}\n` +
-                  `*Email:* ${formData.email}\n` +
-                  `*Therapy / Consultation:* ${formData.treatment}\n` +
-                  `*Preferred Date:* ${formData.date || 'Flexible / To be confirmed'}\n` +
-                  `*Preferred Time Slot:* ${formData.timeSlot}\n` +
-                  (formData.notes ? `*Health Goals / Notes:* ${formData.notes}\n` : '') +
-                  `----------------------------------------\n` +
-                  `Please confirm my consultation slot. Thank you!`
-                )}`}
+                href={generateWhatsAppUrl(bookingRef)}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto rounded-full px-6 py-3 bg-[#25D366] text-white text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                className="w-full sm:w-auto rounded-full px-5 py-3 bg-[#25D366] text-white text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               >
                 <MessageCircle size={16} />
-                <span>Instant WhatsApp Connect</span>
+                <span>Re-open WhatsApp</span>
+              </a>
+
+              <a
+                href={generateEmailUrl(bookingRef)}
+                className="w-full sm:w-auto rounded-full px-5 py-3 bg-black text-white text-xs uppercase tracking-wider font-semibold hover:bg-stone-800 transition-colors flex items-center justify-center gap-2"
+              >
+                <Mail size={16} />
+                <span>Re-open Email</span>
               </a>
 
               <button
                 onClick={handleResetAndClose}
-                className="w-full sm:w-auto rounded-full px-6 py-3 bg-stone-100 hover:bg-stone-200 text-black text-xs uppercase tracking-wider font-semibold transition-colors"
+                className="w-full sm:w-auto rounded-full px-5 py-3 bg-stone-100 hover:bg-stone-200 text-black text-xs uppercase tracking-wider font-semibold transition-colors"
               >
                 Return to Sanctuary
               </button>

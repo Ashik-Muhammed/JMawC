@@ -93,8 +93,34 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
     if (field === 'email') setErrors((prev) => ({ ...prev, email: validateEmail(formData.email) }));
   };
 
-  const handleInlineSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const generateWhatsAppUrl = () => {
+    return `https://wa.me/919443861260?text=${encodeURIComponent(
+      `*Jayamahesh Ayurveda - Appointment Request*\n` +
+      `----------------------------------------\n` +
+      `*Guest Name:* ${formData.name}\n` +
+      `*Phone / WhatsApp:* ${formData.phone}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Therapy / Consultation:* ${formData.service}\n` +
+      (formData.message ? `*Health Goals / Message:* ${formData.message}\n` : '') +
+      `----------------------------------------\n` +
+      `Please confirm availability for this session. Thank you!`
+    )}`;
+  };
+
+  const generateEmailUrl = () => {
+    const subject = `Appointment Request: ${formData.service} - ${formData.name}`;
+    const body =
+      `Jayamahesh Ayurveda & Wellness - Appointment Request\n\n` +
+      `Guest Name: ${formData.name}\n` +
+      `Phone / WhatsApp: ${formData.phone}\n` +
+      `Email: ${formData.email}\n` +
+      `Therapy / Consultation: ${formData.service}\n` +
+      (formData.message ? `Health Goals / Message: ${formData.message}\n\n` : '\n') +
+      `Please confirm availability for this session. Thank you!`;
+    return `mailto:jayamaheshadmin@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const handleDirectSubmit = (channel: 'whatsapp' | 'email') => {
     const nameErr = validateName(formData.name);
     const phoneErr = validatePhone(formData.phone);
     const emailErr = validateEmail(formData.email);
@@ -106,7 +132,18 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
       return;
     }
 
+    if (channel === 'whatsapp') {
+      window.open(generateWhatsAppUrl(), '_blank');
+    } else {
+      window.location.href = generateEmailUrl();
+    }
+
     setFormSubmitted(true);
+  };
+
+  const handleInlineSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleDirectSubmit('whatsapp');
   };
 
   const googleMapsUrl =
@@ -495,12 +532,31 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      className="w-full rounded-full py-3.5 sm:py-4 bg-black text-white text-sm font-medium hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer shadow-lg mt-2"
-                    >
-                      Submit Appointment Request
-                    </button>
+                    {/* Direct Booking CTAs */}
+                    <div className="pt-2">
+                      <span className="block text-[11px] uppercase tracking-wider text-stone-500 font-semibold mb-2">
+                        Send Appointment Request Via:
+                      </span>
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <button
+                          type="button"
+                          onClick={() => handleDirectSubmit('whatsapp')}
+                          className="flex-1 rounded-full py-3.5 sm:py-4 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                        >
+                          <MessageCircle size={18} />
+                          <span>Send via WhatsApp</span>
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => handleDirectSubmit('email')}
+                          className="flex-1 rounded-full py-3.5 sm:py-4 bg-black hover:bg-stone-800 active:scale-[0.98] text-white text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                        >
+                          <Mail size={18} />
+                          <span>Send via Email</span>
+                        </button>
+                      </div>
+                    </div>
                   </form>
                 </div>
               ) : (
@@ -512,34 +568,32 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                     Thank You, {formData.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6F6F6F] max-w-sm mx-auto leading-relaxed">
-                    Your appointment request for <strong>{formData.service}</strong> has been logged. Our Ayurvedic coordinators will contact you at {formData.phone} today.
+                    Your appointment request for <strong>{formData.service}</strong> has been dispatched. Our Ayurvedic coordinators will contact you at {formData.phone} shortly.
                   </p>
                   <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
                     <a
-                      href={`https://wa.me/919443861260?text=${encodeURIComponent(
-                        `*Jayamahesh Ayurveda - Appointment Request*\n` +
-                        `----------------------------------------\n` +
-                        `*Guest Name:* ${formData.name}\n` +
-                        `*Phone / WhatsApp:* ${formData.phone}\n` +
-                        `*Email:* ${formData.email}\n` +
-                        `*Therapy / Consultation:* ${formData.service}\n` +
-                        (formData.message ? `*Health Goals / Message:* ${formData.message}\n` : '') +
-                        `----------------------------------------\n` +
-                        `Please confirm availability for this session. Thank you!`
-                      )}`}
+                      href={generateWhatsAppUrl()}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full sm:w-auto rounded-full px-6 py-3 bg-[#25D366] text-white text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-sm"
+                      className="w-full sm:w-auto rounded-full px-5 py-3 bg-[#25D366] text-white text-xs uppercase tracking-wider font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-sm"
                     >
                       <MessageCircle size={16} />
-                      <span>Send Details via WhatsApp</span>
+                      <span>Re-open WhatsApp</span>
+                    </a>
+
+                    <a
+                      href={generateEmailUrl()}
+                      className="w-full sm:w-auto rounded-full px-5 py-3 bg-black text-white text-xs uppercase tracking-wider font-semibold hover:bg-stone-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
+                    >
+                      <Mail size={16} />
+                      <span>Re-open Email</span>
                     </a>
 
                     <button
                       onClick={() => setFormSubmitted(false)}
-                      className="w-full sm:w-auto rounded-full px-6 py-3 bg-stone-100 hover:bg-stone-200 text-black text-xs uppercase tracking-wider font-semibold transition-colors"
+                      className="w-full sm:w-auto rounded-full px-5 py-3 bg-stone-100 hover:bg-stone-200 text-black text-xs uppercase tracking-wider font-semibold transition-colors"
                     >
-                      Submit Another Inquiry
+                      Submit Another
                     </button>
                   </div>
                 </div>
