@@ -39,11 +39,10 @@ export const StudioSection: React.FC<StudioSectionProps> = ({
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`rounded-full px-4 sm:px-5 py-2 text-[11px] sm:text-xs tracking-wider uppercase transition-all duration-200 cursor-pointer ${
-                activeCategory === category
+              className={`rounded-full px-4 sm:px-5 py-2 text-[11px] sm:text-xs tracking-wider uppercase transition-all duration-200 cursor-pointer ${activeCategory === category
                   ? 'bg-black text-white shadow-sm'
                   : 'bg-stone-100 text-[#6F6F6F] hover:bg-stone-200 hover:text-black'
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -62,12 +61,12 @@ export const StudioSection: React.FC<StudioSectionProps> = ({
             <div className="relative h-64 w-full overflow-hidden bg-stone-100">
               <img
                 src={item.image}
-                alt={`${item.name} - Authentic Kerala Ayurvedic Therapy at Jayamahesh Clinic Parassala`}
+                alt={`${item.name} - Authentic Kerala Ayurvedic Therapy at Jayamahesh Clinic `}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              
+
               {/* Category pill */}
               <div className="absolute top-4 left-4">
                 <span className="glass-pill px-3 py-1 rounded-full text-[11px] font-medium tracking-wide text-black uppercase">

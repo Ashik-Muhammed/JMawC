@@ -95,7 +95,6 @@ export const App: React.FC = () => {
         preselectedTreatment={preselectedTherapy}
       />
 
-      {/* Floating Action Button for Quick Booking on Mobile/Tablet */}
 
     </div>
   );
