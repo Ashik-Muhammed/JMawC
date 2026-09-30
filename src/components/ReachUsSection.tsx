@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, ChevronDown, CheckCircle2, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, ChevronDown, CheckCircle2, ExternalLink, Check } from 'lucide-react';
 
 interface ReachUsSectionProps {
   onOpenBooking: () => void;
@@ -35,8 +35,77 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
     },
   ];
 
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
+
+  const validateName = (name: string): string => {
+    const trimmed = name.trim();
+    if (!trimmed) return 'Full name is required';
+    if (trimmed.length < 2) return 'Full name must be at least 2 characters';
+    if (!/^[a-zA-Z\s.'-]+$/.test(trimmed)) return 'Name can only contain letters and spaces';
+    return '';
+  };
+
+  const validatePhone = (phone: string): string => {
+    const digits = phone.replace(/\D/g, '');
+    if (!digits) return 'Phone number is required';
+    if (digits.length !== 10) return `Phone number must be exactly 10 digits (${digits.length}/10 entered)`;
+    if (!/^[6-9]\d{9}$/.test(digits)) return 'Please enter a valid 10-digit mobile number';
+    return '';
+  };
+
+  const validateEmail = (email: string): string => {
+    const trimmed = email.trim();
+    if (!trimmed) return 'Email address is required';
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(trimmed)) return 'Please enter a valid email address (e.g. name@domain.com)';
+    return '';
+  };
+
+  const handleNameChange = (val: string) => {
+    const sanitized = val.replace(/[^a-zA-Z\s.'-]/g, '');
+    setFormData((prev) => ({ ...prev, name: sanitized }));
+    if (touched.name) {
+      setErrors((prev) => ({ ...prev, name: validateName(sanitized) }));
+    }
+  };
+
+  const handlePhoneChange = (val: string) => {
+    const digitsOnly = val.replace(/\D/g, '').slice(0, 10);
+    setFormData((prev) => ({ ...prev, phone: digitsOnly }));
+    if (touched.phone) {
+      setErrors((prev) => ({ ...prev, phone: validatePhone(digitsOnly) }));
+    }
+  };
+
+  const handleEmailChange = (val: string) => {
+    const trimmed = val.trim();
+    setFormData((prev) => ({ ...prev, email: trimmed }));
+    if (touched.email) {
+      setErrors((prev) => ({ ...prev, email: validateEmail(trimmed) }));
+    }
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    if (field === 'name') setErrors((prev) => ({ ...prev, name: validateName(formData.name) }));
+    if (field === 'phone') setErrors((prev) => ({ ...prev, phone: validatePhone(formData.phone) }));
+    if (field === 'email') setErrors((prev) => ({ ...prev, email: validateEmail(formData.email) }));
+  };
+
   const handleInlineSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const nameErr = validateName(formData.name);
+    const phoneErr = validatePhone(formData.phone);
+    const emailErr = validateEmail(formData.email);
+
+    setTouched({ name: true, phone: true, email: true });
+    setErrors({ name: nameErr, phone: phoneErr, email: emailErr });
+
+    if (nameErr || phoneErr || emailErr) {
+      return;
+    }
+
     setFormSubmitted(true);
   };
 
@@ -266,17 +335,41 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
 
                   <form onSubmit={handleInlineSubmit} className="space-y-3.5 sm:space-y-4">
                     <div>
-                      <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="e.g. Eleanor Vance"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm focus:outline-none focus:border-black transition-colors"
-                      />
+                      <div className="flex justify-between items-center mb-1">
+                        <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider">
+                          Full Name
+                        </label>
+                        {touched.name && !errors.name && formData.name && (
+                          <span className="text-[10px] text-[#0B823D] font-medium flex items-center gap-1">
+                            <Check size={12} /> Valid Name
+                          </span>
+                        )}
+                      </div>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          required
+                          placeholder="e.g. Eleanor Vance (letters only)"
+                          value={formData.name}
+                          onChange={(e) => handleNameChange(e.target.value)}
+                          onBlur={() => handleBlur('name')}
+                          className={`w-full px-4 py-3 pr-9 rounded-xl border text-base sm:text-sm focus:outline-none transition-colors ${
+                            touched.name && errors.name
+                              ? 'border-red-500 focus:border-red-600 bg-red-50/20'
+                              : touched.name && formData.name && !errors.name
+                              ? 'border-emerald-500/60 focus:border-[#0B823D]'
+                              : 'border-black/15 focus:border-black'
+                          }`}
+                        />
+                        {touched.name && !errors.name && formData.name && (
+                          <Check size={16} className="absolute right-3 top-3.5 text-[#0B823D]" />
+                        )}
+                      </div>
+                      {touched.name && errors.name && (
+                        <p className="text-[11px] text-red-600 mt-1 font-medium flex items-center gap-1">
+                          <span>•</span> {errors.name}
+                        </p>
+                      )}
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
@@ -284,28 +377,72 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                         <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1">
                           Phone Number
                         </label>
-                        <input
-                          type="tel"
-                          required
-                          placeholder="+91 98765 43210"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm focus:outline-none focus:border-black transition-colors"
-                        />
+                        <div className="relative">
+                          <input
+                            type="tel"
+                            inputMode="numeric"
+                            pattern="[0-9]*"
+                            maxLength={10}
+                            required
+                            placeholder="10-digit mobile number"
+                            value={formData.phone}
+                            onChange={(e) => handlePhoneChange(e.target.value)}
+                            onBlur={() => handleBlur('phone')}
+                            className={`w-full px-4 py-3 pr-9 rounded-xl border text-base sm:text-sm focus:outline-none transition-colors ${
+                              touched.phone && errors.phone
+                                ? 'border-red-500 focus:border-red-600 bg-red-50/20'
+                                : touched.phone && formData.phone.length === 10 && !errors.phone
+                                ? 'border-emerald-500/60 focus:border-[#0B823D]'
+                                : 'border-black/15 focus:border-black'
+                            }`}
+                          />
+                          {touched.phone && formData.phone.length === 10 && !errors.phone && (
+                            <Check size={16} className="absolute right-3 top-3.5 text-[#0B823D]" />
+                          )}
+                        </div>
+                        {touched.phone && errors.phone && (
+                          <p className="text-[11px] text-red-600 mt-1 font-medium flex items-center gap-1">
+                            <span>•</span> {errors.phone}
+                          </p>
+                        )}
                       </div>
 
                       <div>
-                        <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          placeholder="eleanor@example.com"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm focus:outline-none focus:border-black transition-colors"
-                        />
+                        <div className="flex justify-between items-center mb-1">
+                          <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider">
+                            Email Address
+                          </label>
+                          {touched.email && !errors.email && formData.email && (
+                            <span className="text-[10px] text-[#0B823D] font-medium flex items-center gap-1">
+                              <Check size={12} /> Valid Email
+                            </span>
+                          )}
+                        </div>
+                        <div className="relative">
+                          <input
+                            type="email"
+                            required
+                            placeholder="eleanor@example.com"
+                            value={formData.email}
+                            onChange={(e) => handleEmailChange(e.target.value)}
+                            onBlur={() => handleBlur('email')}
+                            className={`w-full px-4 py-3 pr-9 rounded-xl border text-base sm:text-sm focus:outline-none transition-colors ${
+                              touched.email && errors.email
+                                ? 'border-red-500 focus:border-red-600 bg-red-50/20'
+                                : touched.email && formData.email && !errors.email
+                                ? 'border-emerald-500/60 focus:border-[#0B823D]'
+                                : 'border-black/15 focus:border-black'
+                            }`}
+                          />
+                          {touched.email && !errors.email && formData.email && (
+                            <Check size={16} className="absolute right-3 top-3.5 text-[#0B823D]" />
+                          )}
+                        </div>
+                        {touched.email && errors.email && (
+                          <p className="text-[11px] text-red-600 mt-1 font-medium flex items-center gap-1">
+                            <span>•</span> {errors.email}
+                          </p>
+                        )}
                       </div>
                     </div>
 

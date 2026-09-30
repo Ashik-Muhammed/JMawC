@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, Calendar, Clock, User, Phone, Mail, Sparkles, MessageCircle } from 'lucide-react';
+import { X, CheckCircle2, Calendar, Clock, User, Phone, Mail, Sparkles, MessageCircle, Check } from 'lucide-react';
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -25,6 +25,78 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   const defaultTreatment = therapiesList[0].name;
 
+  interface TimeSlotConfig {
+    label: string;
+    startHour: number;
+    startMinute: number;
+    endHour: number;
+    endMinute: number;
+  }
+
+  const TIME_SLOTS: TimeSlotConfig[] = [
+    { label: 'Early Morning (07:30 AM - 09:00 AM)', startHour: 7, startMinute: 30, endHour: 9, endMinute: 0 },
+    { label: 'Morning (09:00 AM - 11:00 AM)', startHour: 9, startMinute: 0, endHour: 11, endMinute: 0 },
+    { label: 'Midday (11:30 AM - 01:30 PM)', startHour: 11, startMinute: 30, endHour: 13, endMinute: 30 },
+    { label: 'Afternoon (03:00 PM - 05:00 PM)', startHour: 15, startMinute: 0, endHour: 17, endMinute: 0 },
+    { label: 'Evening Twilight (05:30 PM - 07:30 PM)', startHour: 17, startMinute: 30, endHour: 19, endMinute: 30 },
+  ];
+
+  const getTodayDateString = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const getTomorrowDateString = () => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const day = String(tomorrow.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+  const isSlotInPast = (slot: TimeSlotConfig, selectedDate: string): boolean => {
+    if (!selectedDate) return false;
+    const todayStr = getTodayDateString();
+    if (selectedDate < todayStr) return true;
+    if (selectedDate > todayStr) return false;
+
+    // Selected date is today: check against current local time
+    const now = new Date();
+    const currentTotalMinutes = now.getHours() * 60 + now.getMinutes();
+    const slotStartMinutes = slot.startHour * 60 + slot.startMinute;
+    return currentTotalMinutes >= slotStartMinutes;
+  };
+
+  const todayDate = getTodayDateString();
+
+  const validateName = (name: string): string => {
+    const trimmed = name.trim();
+    if (!trimmed) return 'Full name is required';
+    if (trimmed.length < 2) return 'Full name must be at least 2 characters';
+    if (!/^[a-zA-Z\s.'-]+$/.test(trimmed)) return 'Name can only contain letters and spaces';
+    return '';
+  };
+
+  const validatePhone = (phone: string): string => {
+    const digits = phone.replace(/\D/g, '');
+    if (!digits) return 'Phone number is required';
+    if (digits.length !== 10) return `Phone number must be exactly 10 digits (${digits.length}/10 entered)`;
+    if (!/^[6-9]\d{9}$/.test(digits)) return 'Please enter a valid 10-digit mobile number';
+    return '';
+  };
+
+  const validateEmail = (email: string): string => {
+    const trimmed = email.trim();
+    if (!trimmed) return 'Email address is required';
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(trimmed)) return 'Please enter a valid email address (e.g. name@domain.com)';
+    return '';
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -35,8 +107,30 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     notes: '',
   });
 
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [touched, setTouched] = useState<{ [key: string]: boolean }>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [bookingRef, setBookingRef] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      const today = getTodayDateString();
+      const availableToday = TIME_SLOTS.filter((s) => !isSlotInPast(s, today));
+      const defaultDate = availableToday.length > 0 ? today : getTomorrowDateString();
+      const defaultSlot = availableToday.length > 0 ? availableToday[0].label : TIME_SLOTS[0].label;
+
+      setFormData((prev) => ({
+        ...prev,
+        date: prev.date || defaultDate,
+        timeSlot: prev.timeSlot || defaultSlot,
+      }));
+      setErrors({});
+      setTouched({});
+    } else {
+      setErrors({});
+      setTouched({});
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     if (preselectedTreatment) {
@@ -51,8 +145,99 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   if (!isOpen) return null;
 
+  const handleNameChange = (val: string) => {
+    // Only letters and spaces allowed
+    const sanitized = val.replace(/[^a-zA-Z\s.'-]/g, '');
+    setFormData((prev) => ({ ...prev, name: sanitized }));
+    if (touched.name) {
+      setErrors((prev) => ({ ...prev, name: validateName(sanitized) }));
+    }
+  };
+
+  const handlePhoneChange = (val: string) => {
+    // Only numbers allowed, capped at 10 digits
+    const digitsOnly = val.replace(/\D/g, '').slice(0, 10);
+    setFormData((prev) => ({ ...prev, phone: digitsOnly }));
+    if (touched.phone) {
+      setErrors((prev) => ({ ...prev, phone: validatePhone(digitsOnly) }));
+    }
+  };
+
+  const handleEmailChange = (val: string) => {
+    const trimmed = val.trim();
+    setFormData((prev) => ({ ...prev, email: trimmed }));
+    if (touched.email) {
+      setErrors((prev) => ({ ...prev, email: validateEmail(trimmed) }));
+    }
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    if (field === 'name') setErrors((prev) => ({ ...prev, name: validateName(formData.name) }));
+    if (field === 'phone') setErrors((prev) => ({ ...prev, phone: validatePhone(formData.phone) }));
+    if (field === 'email') setErrors((prev) => ({ ...prev, email: validateEmail(formData.email) }));
+  };
+
+  const handleDateChange = (selectedDate: string) => {
+    const today = getTodayDateString();
+    let dateErr = '';
+    if (selectedDate && selectedDate < today) {
+      dateErr = 'Please select today or a future date';
+    }
+
+    const availableSlots = TIME_SLOTS.filter((s) => !isSlotInPast(s, selectedDate));
+    let timeErr = '';
+    let updatedTimeSlot = formData.timeSlot;
+
+    if (availableSlots.length === 0 && selectedDate === today) {
+      updatedTimeSlot = '';
+      timeErr = 'All appointment slots for today have concluded. Please choose tomorrow or an upcoming date.';
+    } else if (availableSlots.length > 0) {
+      const currentSlotConfig = TIME_SLOTS.find((s) => s.label === formData.timeSlot);
+      const isCurrentPast = !currentSlotConfig || isSlotInPast(currentSlotConfig, selectedDate);
+      if (isCurrentPast) {
+        updatedTimeSlot = availableSlots[0].label;
+      }
+    }
+
+    setErrors((prev) => ({ ...prev, date: dateErr, timeSlot: timeErr }));
+    setFormData((prev) => ({
+      ...prev,
+      date: selectedDate,
+      timeSlot: updatedTimeSlot,
+    }));
+  };
+
+  const handleTimeSlotChange = (newTimeSlot: string) => {
+    const slotConfig = TIME_SLOTS.find((s) => s.label === newTimeSlot);
+    let timeErr = '';
+    if (slotConfig && isSlotInPast(slotConfig, formData.date)) {
+      timeErr = 'This time slot has already passed for today. Please select an upcoming slot.';
+    }
+    setErrors((prev) => ({ ...prev, timeSlot: timeErr }));
+    setFormData((prev) => ({ ...prev, timeSlot: newTimeSlot }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const today = getTodayDateString();
+
+    const nameErr = validateName(formData.name);
+    const phoneErr = validatePhone(formData.phone);
+    const emailErr = validateEmail(formData.email);
+    const dateErr = !formData.date || formData.date < today ? 'Please select today or a future date for your consultation' : '';
+    const selectedSlotConfig = TIME_SLOTS.find((s) => s.label === formData.timeSlot);
+    const timeErr = !formData.timeSlot || !selectedSlotConfig || isSlotInPast(selectedSlotConfig, formData.date)
+      ? 'The selected time slot has already passed. Please select an upcoming slot or future date.'
+      : '';
+
+    setTouched({ name: true, phone: true, email: true, date: true, timeSlot: true });
+    setErrors({ name: nameErr, phone: phoneErr, email: emailErr, date: dateErr, timeSlot: timeErr });
+
+    if (nameErr || phoneErr || emailErr || dateErr || timeErr) {
+      return;
+    }
+
     const refCode = 'JM-' + Math.floor(100000 + Math.random() * 900000);
     setBookingRef(refCode);
     setIsSubmitted(true);
@@ -60,16 +245,10 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
 
   const handleResetAndClose = () => {
     setIsSubmitted(false);
+    setErrors({});
+    setTouched({});
     onClose();
   };
-
-  const timeSlots = [
-    'Early Morning (07:30 AM - 09:00 AM)',
-    'Morning (09:00 AM - 11:00 AM)',
-    'Midday (11:30 AM - 01:30 PM)',
-    'Afternoon (03:00 PM - 05:00 PM)',
-    'Evening Twilight (05:30 PM - 07:30 PM)',
-  ];
 
   return (
     <div
@@ -103,20 +282,41 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
               {/* Full Name */}
               <div>
-                <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
-                  Full Name
-                </label>
+                <div className="flex justify-between items-center mb-1.5">
+                  <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider">
+                    Full Name
+                  </label>
+                  {touched.name && !errors.name && formData.name && (
+                    <span className="text-[10px] text-[#0B823D] font-medium flex items-center gap-1">
+                      <Check size={12} /> Valid Name
+                    </span>
+                  )}
+                </div>
                 <div className="relative">
                   <User size={16} className="absolute left-3.5 top-3.5 text-stone-400" />
                   <input
                     type="text"
                     required
-                    placeholder="Enter your name"
+                    placeholder="Enter your full name.."
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors"
+                    onChange={(e) => handleNameChange(e.target.value)}
+                    onBlur={() => handleBlur('name')}
+                    className={`w-full pl-10 pr-9 py-3 rounded-xl border text-base sm:text-sm text-black focus:outline-none transition-colors ${touched.name && errors.name
+                        ? 'border-red-500 focus:border-red-600 bg-red-50/20'
+                        : touched.name && formData.name && !errors.name
+                          ? 'border-emerald-500/60 focus:border-[#0B823D]'
+                          : 'border-black/15 focus:border-black'
+                      }`}
                   />
+                  {touched.name && !errors.name && formData.name && (
+                    <Check size={16} className="absolute right-3.5 top-3.5 text-[#0B823D]" />
+                  )}
                 </div>
+                {touched.name && errors.name && (
+                  <p className="text-[11px] text-red-600 mt-1 font-medium flex items-center gap-1">
+                    <span>•</span> {errors.name}
+                  </p>
+                )}
               </div>
 
               {/* Phone & Email */}
@@ -129,19 +329,43 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     <Phone size={16} className="absolute left-3.5 top-3.5 text-stone-400" />
                     <input
                       type="tel"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      maxLength={10}
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="contact number"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors"
+                      onChange={(e) => handlePhoneChange(e.target.value)}
+                      onBlur={() => handleBlur('phone')}
+                      className={`w-full pl-10 pr-9 py-3 rounded-xl border text-base sm:text-sm text-black focus:outline-none transition-colors ${touched.phone && errors.phone
+                          ? 'border-red-500 focus:border-red-600 bg-red-50/20'
+                          : touched.phone && formData.phone.length === 10 && !errors.phone
+                            ? 'border-emerald-500/60 focus:border-[#0B823D]'
+                            : 'border-black/15 focus:border-black'
+                        }`}
                     />
+                    {touched.phone && formData.phone.length === 10 && !errors.phone && (
+                      <Check size={16} className="absolute right-3.5 top-3.5 text-[#0B823D]" />
+                    )}
                   </div>
+                  {touched.phone && errors.phone && (
+                    <p className="text-[11px] text-red-600 mt-1 font-medium flex items-center gap-1">
+                      <span>•</span> {errors.phone}
+                    </p>
+                  )}
                 </div>
 
                 <div>
-                  <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider mb-1.5">
-                    Email Address
-                  </label>
+                  <div className="flex justify-between items-center mb-1.5">
+                    <label className="block text-[11px] sm:text-xs font-semibold text-black uppercase tracking-wider">
+                      Email Address
+                    </label>
+                    {touched.email && !errors.email && formData.email && (
+                      <span className="text-[10px] text-[#0B823D] font-medium flex items-center gap-1">
+                        <Check size={12} /> Valid Email
+                      </span>
+                    )}
+                  </div>
                   <div className="relative">
                     <Mail size={16} className="absolute left-3.5 top-3.5 text-stone-400" />
                     <input
@@ -149,10 +373,24 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                       required
                       placeholder="name@domain.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors"
+                      onChange={(e) => handleEmailChange(e.target.value)}
+                      onBlur={() => handleBlur('email')}
+                      className={`w-full pl-10 pr-9 py-3 rounded-xl border text-base sm:text-sm text-black focus:outline-none transition-colors ${touched.email && errors.email
+                          ? 'border-red-500 focus:border-red-600 bg-red-50/20'
+                          : touched.email && formData.email && !errors.email
+                            ? 'border-emerald-500/60 focus:border-[#0B823D]'
+                            : 'border-black/15 focus:border-black'
+                        }`}
                     />
+                    {touched.email && !errors.email && formData.email && (
+                      <Check size={16} className="absolute right-3.5 top-3.5 text-[#0B823D]" />
+                    )}
                   </div>
+                  {touched.email && errors.email && (
+                    <p className="text-[11px] text-red-600 mt-1 font-medium flex items-center gap-1">
+                      <span>•</span> {errors.email}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -185,11 +423,20 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     <input
                       type="date"
                       required
+                      min={todayDate}
                       value={formData.date}
-                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black focus:outline-none focus:border-black transition-colors"
+                      onChange={(e) => handleDateChange(e.target.value)}
+                      className={`w-full pl-10 pr-4 py-3 rounded-xl border text-base sm:text-sm text-black focus:outline-none transition-colors ${errors.date
+                          ? 'border-red-500 focus:border-red-600 bg-red-50/20'
+                          : 'border-black/15 focus:border-black'
+                        }`}
                     />
                   </div>
+                  {errors.date && (
+                    <p className="text-[11px] text-red-600 mt-1 font-medium flex items-center gap-1">
+                      <span>•</span> {errors.date}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -200,16 +447,50 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
                     <Clock size={16} className="absolute left-3.5 top-3.5 text-stone-400 pointer-events-none" />
                     <select
                       value={formData.timeSlot}
-                      onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                      className="w-full pl-10 pr-4 py-3 rounded-xl border border-black/15 text-base sm:text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
+                      onChange={(e) => handleTimeSlotChange(e.target.value)}
+                      disabled={formData.date === todayDate && TIME_SLOTS.every((s) => isSlotInPast(s, formData.date))}
+                      className={`w-full pl-10 pr-4 py-3 rounded-xl border text-base sm:text-sm text-black bg-white focus:outline-none transition-colors ${errors.timeSlot
+                          ? 'border-red-500 focus:border-red-600 bg-red-50/20'
+                          : 'border-black/15 focus:border-black'
+                        } ${formData.date === todayDate && TIME_SLOTS.every((s) => isSlotInPast(s, formData.date))
+                          ? 'opacity-60 cursor-not-allowed bg-stone-100'
+                          : ''
+                        }`}
                     >
-                      {timeSlots.map((ts, i) => (
-                        <option key={i} value={ts}>
-                          {ts}
-                        </option>
-                      ))}
+                      {formData.date === todayDate && TIME_SLOTS.every((s) => isSlotInPast(s, formData.date)) && (
+                        <option value="">No slots remaining today</option>
+                      )}
+                      {TIME_SLOTS.map((slot) => {
+                        const isPast = isSlotInPast(slot, formData.date);
+                        return (
+                          <option
+                            key={slot.label}
+                            value={slot.label}
+                            disabled={isPast}
+                            className={isPast ? 'text-stone-400 bg-stone-50' : 'text-black'}
+                          >
+                            {slot.label} {isPast ? ' • (Passed)' : ''}
+                          </option>
+                        );
+                      })}
                     </select>
                   </div>
+                  {errors.timeSlot && (
+                    <div className="mt-1 space-y-1">
+                      <p className="text-[11px] text-red-600 font-medium flex items-center gap-1">
+                        <span>•</span> {errors.timeSlot}
+                      </p>
+                      {formData.date === todayDate && TIME_SLOTS.every((s) => isSlotInPast(s, formData.date)) && (
+                        <button
+                          type="button"
+                          onClick={() => handleDateChange(getTomorrowDateString())}
+                          className="text-[11px] text-[#0B823D] hover:underline font-semibold flex items-center gap-1 cursor-pointer"
+                        >
+                          &rarr; Switch date to tomorrow ({getTomorrowDateString()})
+                        </button>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
 
