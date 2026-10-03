@@ -28,7 +28,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               At Jayamahesh Ayurveda and Wellness Clinic, healing is not an industrial assembly line; it is a sacred pilgrimage back to biological equilibrium. Rooted in the authentic Ashtavaidya and classical traditions of Kerala, we practice time-tested Ayurveda in its unadulterated form.
             </p>
             <p className="text-sm sm:text-base text-[#6F6F6F] leading-relaxed">
-              Every therapeutic oil is prepared inside our traditional apothecaries—slow-simmered in copper cauldrons with mountain herbs, unpasteurized milk, and stone-pressed sesame base. Guided by pulse masters, each guest is treated not as a set of symptoms, but as an interplay of space, air, fire, water, and earth.
+              Every therapeutic oil is prepared inside our traditional apothecaries, slow-simmered in copper cauldrons with mountain herbs, unpasteurized milk, and stone-pressed sesame base. Guided by pulse masters, each guest is treated not as a set of symptoms, but as an interplay of space, air, fire, water, and earth.
             </p>
 
             {/* Philosophy quote */}
@@ -38,7 +38,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 True health is not merely the absence of disease, but a joyful awareness where digestion is strong, tissues are nourished, emotions are clear, and the soul resides in peace.
               </p>
               <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#6F6F6F] not-italic font-sans mt-3 font-medium">
-                — Sushruta Samhita, Sutrasthana
+                -Sushruta Samhita, Sutrasthana
               </p>
             </div>
 
@@ -63,13 +63,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div className="relative rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl border border-black/10">
               <img
-                src="/images/ayurveda_hero_sanctuary_1790273136594.jpg"
-                alt="Jayamahesh Ayurveda Sanctuary and Medicinal Greenery in Parassala Kerala"
+                src="/images/ayurveda_hero_sanctuary_1790273136594.webp"
+                alt="Jayamahesh Ayurveda Sanctuary Healing Grounds and Medicinal Garden in Parassala, Kerala"
+                width={800}
+                height={520}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-[280px] xs:h-[360px] sm:h-[440px] lg:h-[520px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              
+
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-white">
                 <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#A4E24A] font-medium">
                   The Healing Grounds
@@ -100,7 +103,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         </div>
 
         {/* Dedicated Doctors & Therapists Section */}
-        <div className="mt-16 sm:mt-24 pt-12 sm:pt-20 border-t border-black/10">
+        <div id="doctors" className="mt-16 sm:mt-24 pt-12 sm:pt-20 border-t border-black/10 scroll-mt-24">
           <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 sm:mb-14">
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#0B823D] font-medium mb-2">
               Clinical Team &amp; Healers
@@ -118,9 +121,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
               <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-stone-100">
                 <img
-                  src="/images/dr_jayalekshmi.jpg"
-                  alt="Dr. Jayalekshmi (M.D, B.A.M.S) - Senior Ayurvedic Physician & Nadi Pariksha Specialist Parassala"
+                  src="/images/dr_jayalekshmi.webp"
+                  alt="Dr. Jayalekshmi (M.D, B.A.M.S) - Senior Ayurvedic Physician & Nadi Pariksha Specialist in Parassala, Kerala"
+                  width={400}
+                  height={500}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
@@ -158,9 +164,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
               <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-stone-100">
                 <img
-                  src="/images/therapist_maya.jpg"
-                  alt="Maya - Classical Ayurvedic Therapist at Jayamahesh Clinic"
+                  src="/images/therapist_maya.webp"
+                  alt="Maya - Senior Ayurvedic Therapist specializing in Shirodhara and synchronized Abhyangam at Jayamahesh Clinic"
+                  width={400}
+                  height={500}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
@@ -198,9 +207,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="bg-white rounded-3xl overflow-hidden border border-black/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
               <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-stone-100">
                 <img
-                  src="/images/therapist_rajalekshmi.jpg"
-                  alt="Rajalekshmi - Classical Ayurvedic Therapist at Jayamahesh Clinic"
+                  src="/images/therapist_rajalekshmi.webp"
+                  alt="Rajalekshmi - Senior Classical Ayurvedic Practitioner specializing in Pizhichil and Kizhi therapies at Jayamahesh Clinic"
+                  width={400}
+                  height={500}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />

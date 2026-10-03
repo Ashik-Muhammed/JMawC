@@ -298,6 +298,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
+      aria-labelledby="consultation-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
     >
       <div className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl p-5 sm:p-8 md:p-10 border border-black/10 max-h-[90vh] overflow-y-auto">
@@ -315,9 +316,9 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
               <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#0B823D] font-medium flex items-center gap-1 mb-1">
                 <Sparkles size={14} /> Sanctuary Reservation
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-black">
+              <h2 id="consultation-modal-title" className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-black">
                 Reserve Your Consultation
-              </h3>
+              </h2>
               <p className="text-xs sm:text-sm text-[#6F6F6F] mt-1 leading-relaxed">
                 Consult with Dr. Jayalekshmi (M.D, B.A.M.S) and our clinical therapy team for authentic pulse diagnosis and bespoke Ayurvedic care.
               </p>
@@ -589,9 +590,9 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
             <span className="text-xs uppercase tracking-[0.2em] text-[#0B823D] font-semibold">
               Reservation Dispatched
             </span>
-            <h3 className="font-serif text-2xl sm:text-4xl text-black font-normal mt-1">
+            <h2 className="font-serif text-2xl sm:text-4xl text-black font-normal mt-1">
               Namaste, {formData.name}
-            </h3>
+            </h2>
 
             <p className="text-xs sm:text-sm text-[#6F6F6F] mt-2 max-w-md mx-auto">
               Your consultation booking request has been forwarded directly to our clinic coordinators. Our senior Vaidya desk will confirm your appointment shortly.

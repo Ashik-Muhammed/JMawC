@@ -58,7 +58,7 @@ The clinic is led by experienced traditional Vaidyas and certified therapists:
 
 | Practitioner | Role | Qualifications / Specialty |
 | :--- | :--- | :--- |
-| **Dr. Jayalekshmi** | Chief Ayurvedic Physician | **M.D, B.A.M.S** — Pulse diagnosis (*Nadi Pariksha*), herbal formulations, and personalized therapeutic regimens |
+| **Dr. Jayalekshmi** | Chief Ayurvedic Physician | **M.D, B.A.M.S** : Pulse diagnosis (*Nadi Pariksha*), herbal formulations, and personalized therapeutic regimens |
 | **Maya** | Senior Ayurvedic Therapist | Shirodhara, Takradhara, and synchronized oleation therapies |
 | **Rajalekshmi** | Senior Ayurvedic Therapist | Pizhichil, Kizhi poultices, and Kadivasthi spinal restoration |
 
@@ -66,13 +66,13 @@ The clinic is led by experienced traditional Vaidyas and certified therapists:
 
 ## 🏺 Therapies Offered
 
-1. **Pizhichil** — *The Royal Medicated Oil Stream* (Continuous warm herbal oil bath for neurological vitality, arthritis, and deep rejuvenation).
-2. **Dhara** — *Continuous Healing Stream* (Takradhara and Ksheeradhara decoctions poured rhythmically over the forehead or body to pacify Pitta and reduce tension).
-3. **Shirovasthi** — *Cranial Medicated Oil Reservoir* (Warm medicated oil retained in an elongated leather cap for cranial nerve renewal and facial palsy).
-4. **Abhyangam** — *Synchronized Full-Body Herbal Massage* (Rhythmic two-therapist oleation using authentic herbal oils to stimulate lymph circulation).
-5. **Kizhi** — *Warm Botanical Bolus Therapy* (Heated herbal poultice compress for chronic joint stiffness, sciatica, and muscular inflammation).
-6. **Kadivasthi** — *Lumbar Oil Reservoir Therapy* (Warm medicated oil held within an organic dough ring on the lower back for disk prolapse and lumbar pain).
-7. **Shirodhara** — *Continuous Meditative Stream* (Herbal oil streamed across the third eye to alleviate insomnia, anxiety, and mental exhaustion).
+1. **Pizhichil** - *The Royal Medicated Oil Stream* (Continuous warm herbal oil bath for neurological vitality, arthritis, and deep rejuvenation).
+2. **Dhara** - *Continuous Healing Stream* (Takradhara and Ksheeradhara decoctions poured rhythmically over the forehead or body to pacify Pitta and reduce tension).
+3. **Shirovasthi** - *Cranial Medicated Oil Reservoir* (Warm medicated oil retained in an elongated leather cap for cranial nerve renewal and facial palsy).
+4. **Abhyangam** - *Synchronized Full-Body Herbal Massage* (Rhythmic two-therapist oleation using authentic herbal oils to stimulate lymph circulation).
+5. **Kizhi** - *Warm Botanical Bolus Therapy* (Heated herbal poultice compress for chronic joint stiffness, sciatica, and muscular inflammation).
+6. **Kadivasthi** - *Lumbar Oil Reservoir Therapy* (Warm medicated oil held within an organic dough ring on the lower back for disk prolapse and lumbar pain).
+7. **Shirodhara** - *Continuous Meditative Stream* (Herbal oil streamed across the third eye to alleviate insomnia, anxiety, and mental exhaustion).
 
 ---
 

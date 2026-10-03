@@ -19,6 +19,7 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
+      aria-labelledby="treatment-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
     >
       {/* Modal Container */}
@@ -27,7 +28,11 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
         <div className="relative h-52 sm:h-72 w-full overflow-hidden bg-stone-100 flex-shrink-0">
           <img
             src={treatment.image}
-            alt={treatment.name}
+            alt={`${treatment.name} (${treatment.sanskritName}) - Classical Kerala Ayurvedic Therapy at Jayamahesh Clinic`}
+            width={768}
+            height={384}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
@@ -46,9 +51,9 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#A4E24A] font-medium">
               {treatment.category} • {treatment.dosha}
             </span>
-            <h3 className="font-serif text-2xl sm:text-4xl font-normal mt-0.5 sm:mt-1 leading-tight">
+            <h2 id="treatment-modal-title" className="font-serif text-2xl sm:text-4xl font-normal mt-0.5 sm:mt-1 leading-tight">
               {treatment.name}
-            </h3>
+            </h2>
             <p className="text-xs sm:text-sm text-stone-200 mt-0.5 sm:mt-1 italic font-serif">
               {treatment.sanskritName}
             </p>
@@ -72,9 +77,9 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
 
           {/* Full Description */}
           <div>
-            <h4 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#6F6F6F] font-semibold mb-1.5 sm:mb-2">
+            <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#6F6F6F] font-semibold mb-1.5 sm:mb-2">
               Clinical Overview
-            </h4>
+            </h3>
             <p className="text-sm sm:text-base leading-relaxed text-[#333333]">
               {treatment.fullDesc}
             </p>
@@ -82,9 +87,9 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
 
           {/* Key Clinical Benefits */}
           <div>
-            <h4 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#6F6F6F] font-semibold mb-2 sm:mb-3">
+            <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#6F6F6F] font-semibold mb-2 sm:mb-3">
               Therapeutic Benefits
-            </h4>
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
               {treatment.benefits.map((benefit, i) => (
                 <div key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[#444444]">
@@ -97,9 +102,9 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
 
           {/* Protocol Steps */}
           <div>
-            <h4 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#6F6F6F] font-semibold mb-2 sm:mb-3">
+            <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#6F6F6F] font-semibold mb-2 sm:mb-3">
               Treatment Protocol Journey
-            </h4>
+            </h3>
             <div className="space-y-2">
               {treatment.protocolSteps.map((step, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-stone-50 text-xs sm:text-sm text-[#444444]">
@@ -114,9 +119,9 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
 
           {/* Botanical Formulations */}
           <div>
-            <h4 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#6F6F6F] font-semibold mb-2">
+            <h3 className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#6F6F6F] font-semibold mb-2">
               Sacred Botanical Infusions
-            </h4>
+            </h3>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {treatment.herbalKeynotes.map((herb, i) => (
                 <span

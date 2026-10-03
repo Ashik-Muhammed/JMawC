@@ -1,153 +1,93 @@
 import React from 'react';
 import Logo from './Logo';
+import { Phone, MessageCircle, Mail, ArrowUp, Clock, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <footer className="bg-white border-t border-black/8 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12 text-[#6F6F6F]">
+    <footer className="bg-white border-t border-black/8 pt-12 sm:pt-16 pb-8 sm:pb-12 text-[#6F6F6F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Top Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-black/8">
-          {/* Brand Info */}
-          <div className="sm:col-span-2 lg:col-span-2 space-y-5 sm:space-y-6">
-            <Logo size="lg" />
-            <p className="text-sm leading-relaxed max-w-sm text-[#6F6F6F]">
-              Preserving thousands of years of classical Kerala Ayurvedic science. Dedicated to genuine cellular rejuvenation, restorative stillness, and individual constitutional harmony.
+        {/* Main 2-Side Row with Balanced Alignment */}
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 pb-8 sm:pb-12 border-b border-black/8 text-center md:text-left">
+          
+          {/* Brand & Location */}
+          <div className="flex flex-col items-center md:items-start space-y-3 max-w-md">
+            <Logo size="md" />
+            <p className="text-xs sm:text-sm text-[#6F6F6F] leading-relaxed">
+              Classical Kerala Ayurvedic healing sanctuary in Parassala, Kerala. Rooted in authentic Vaidya traditions, bespoke botanical formulations, and restorative stillness.
             </p>
-            <div className="pt-2 text-xs text-[#888888]">
-              <span className="font-semibold text-black uppercase tracking-wider block mb-1">
-                Authentic Care
-              </span>
-              <span>Traditional Kerala Classical Healthcare Sanctuary</span>
+            <div className="flex items-center gap-1.5 text-xs text-[#888888] pt-1">
+              <MapPin size={13} className="text-[#0B823D] shrink-0" />
+              <span>Temple Road, near Sree Mahadeva Temple, Parassala (NH 66)</span>
             </div>
           </div>
 
-          {/* Column 2: Navigation */}
-          <div>
-            <h4 className="font-serif text-lg text-black font-normal mb-4">
-              Navigation
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <a href="#home" className="hover:text-black transition-colors">
-                  Home Sanctuary
-                </a>
-              </li>
-              <li>
-                <a href="#studio" className="hover:text-black transition-colors">
-                  Treatments
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-black transition-colors">
-                  Lineage &amp; Vaidyas
-                </a>
-              </li>
-              <li>
-                <a href="#journal" className="hover:text-black transition-colors">
-                  Vedic Journal
-                </a>
-              </li>
-              <li>
-                <a href="#reach-us" className="hover:text-black transition-colors">
-                  Sanctuary Coordinates
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* Contact & Hours */}
+          <div className="flex flex-col items-center md:items-end space-y-3 text-xs sm:text-sm">
+            <span className="text-[11px] font-semibold text-black uppercase tracking-wider">
+              Sanctuary Inquiries
+            </span>
 
-          {/* Column 3: Therapies */}
-          <div>
-            <h4 className="font-serif text-lg text-black font-normal mb-4">
-              Sacred Therapies
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <a href="#studio" className="hover:text-black transition-colors">
-                  Pizhichil (Royal Oil Stream)
-                </a>
-              </li>
-              <li>
-                <a href="#studio" className="hover:text-black transition-colors">
-                  Dhara Stream Therapy
-                </a>
-              </li>
-              <li>
-                <a href="#studio" className="hover:text-black transition-colors">
-                  Shirovasthi Cranial Therapy
-                </a>
-              </li>
-              <li>
-                <a href="#studio" className="hover:text-black transition-colors">
-                  Abhyangam Herbal Anointment
-                </a>
-              </li>
-              <li>
-                <a href="#studio" className="hover:text-black transition-colors">
-                  Kizhi Botanical Poultice
-                </a>
-              </li>
-              <li>
-                <a href="#studio" className="hover:text-black transition-colors">
-                  Kadivasthi Lumbar Reservoir
-                </a>
-              </li>
-              <li>
-                <a href="#studio" className="hover:text-black transition-colors">
-                  Shirodhara Meditative Stream
-                </a>
-              </li>
-            </ul>
-          </div>
+            <div className="flex flex-col items-center md:items-end space-y-2.5">
+              <a
+                href="tel:+919443861260"
+                className="text-black font-medium hover:text-[#0B823D] transition-colors inline-flex items-center gap-1.5"
+              >
+                <Phone size={13} className="text-[#0B823D]" />
+                <span>+91 94438 61260</span>
+              </a>
 
-          {/* Column 4: Sanctuary Contact & Location */}
-          <div>
-            <h4 className="font-serif text-lg text-black font-normal mb-4">
-              Sanctuary Contact
-            </h4>
-            <div className="space-y-2 text-sm">
-              <p className="text-black font-medium">Jayamahesh Ayurveda</p>
-              <p className="text-xs text-[#888888] leading-relaxed">
-                Temple Road, near Sree Mahadeva Temple,<br />
-                Parassala, Kerala 695502
-              </p>
-              <p className="pt-1 text-[11px] text-[#888888]">
-                Salem - Kochi - Kanyakumari Hwy<br />
-                Plus Code: 85R4+79Q
-              </p>
-              <div className="pt-2">
-                <a
-                  href="tel:+919443861260"
-                  className="text-black font-medium hover:text-[#0B823D] transition-colors block"
-                >
-                  +91 94438 61260
-                </a>
-                <a
-                  href="https://wa.me/919443861260"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-xs text-[#0B823D] hover:underline block mt-0.5"
-                >
-                  WhatsApp: +91 94438 61260
-                </a>
+              <a
+                href="https://wa.me/919443861260"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#0B823D] font-medium hover:underline inline-flex items-center gap-1.5"
+              >
+                <MessageCircle size={13} />
+                <span>WhatsApp Concierge</span>
+              </a>
+
+              <a
+                href="mailto:jayamaheshadmin@gmail.com"
+                className="text-[#6F6F6F] hover:text-black transition-colors inline-flex items-center gap-1.5"
+              >
+                <Mail size={13} className="text-[#0B823D]" />
+                <span>jayamaheshadmin@gmail.com</span>
+              </a>
+
+              <div className="flex items-center gap-1.5 text-[11px] text-[#888888] pt-1">
+                <Clock size={12} className="text-stone-400" />
+                <span>Monday to Sunday: 07:30 AM to 07:30 PM</span>
               </div>
-              <p className="text-xs text-[#888888] pt-1">
-                <a href="mailto:jayamaheshadmin@gmail.com" className="hover:text-black transition-colors">
-                  jayamaheshadmin@gmail.com
-                </a>
-              </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#888888] gap-4">
-          <p>
-            &copy; {new Date().getFullYear()} Jayamahesh Ayurveda and Wellness Clinic. All rights reserved.
-          </p>
+        {/* Minimal Bottom Bar */}
+        <div className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#888888] gap-4 text-center md:text-left">
+          <div className="space-y-1">
+            <p className="text-[11px] sm:text-xs">
+              &copy; {new Date().getFullYear()} Jayamahesh Ayurveda &amp; Wellness Clinic. All rights reserved.
+            </p>
+            <p className="text-[11px] text-[#888888] max-w-xl leading-relaxed">
+              Traditional Ayurvedic treatments harmonize internal biological rhythms and vitality. Consult your Vaidya for specific clinical conditions.
+            </p>
+          </div>
 
-          <p className="text-[11px] text-center sm:text-right max-w-md">
-            Traditional Ayurvedic treatments harmonize internal biological rhythms and vitality. Consult your Vaidya for specific clinical conditions.
-          </p>
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/10 hover:border-black/30 hover:bg-stone-50 text-black text-xs transition-colors cursor-pointer shrink-0"
+            aria-label="Back to top"
+          >
+            <span>Back to Top</span>
+            <ArrowUp size={12} />
+          </button>
         </div>
       </div>
     </footer>

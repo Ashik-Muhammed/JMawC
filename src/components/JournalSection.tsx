@@ -39,7 +39,7 @@ export const JournalSection: React.FC = () => {
       excerpt: 'Ayurveda states that an individual is not merely what they eat, but what their cellular Agni can digest, assimilate, and peacefully eliminate.',
       fullContent: [
         'In classical Ayurveda, Agni is the sacred fire within the human temple. Every physical and psychological imbalance begins with compromised digestive fire, leading to the formation of Ama (toxic, sticky metabolic sludge).',
-        '• Vishama Agni (Erratic): Associated with Vata. Digestion fluctuates wildly—one day voracious, the next bloated and dry. Healed with warm unctuous foods and cumin-coriander decoctions.',
+        '• Vishama Agni (Erratic): Associated with Vata. Digestion fluctuates wildly, one day voracious, the next bloated and dry. Healed with warm unctuous foods and cumin-coriander decoctions.',
         '• Tikshna Agni (Hyperactive): Associated with Pitta. Burns food too rapidly, causing acid reflux, burning sensations, and intense irritability. Calmed with coriander seeds, fennel, and ghee.',
         '• Manda Agni (Sluggish): Associated with Kapha. Digestion is heavy, slow, and leaves one lethargic for hours. Awakened with dry ginger, black pepper, and fasting.',
         '• Sama Agni (Balanced): The ideal state of equilibrium where digestion is joyful, painless, and energizing.'
@@ -124,6 +124,7 @@ export const JournalSection: React.FC = () => {
         <div
           role="dialog"
           aria-modal="true"
+          aria-labelledby="article-modal-title"
           className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
         >
           <div className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl p-5 sm:p-8 md:p-10 border border-black/10 max-h-[90vh] overflow-y-auto">
@@ -140,9 +141,9 @@ export const JournalSection: React.FC = () => {
                 <BookOpen size={14} />
                 <span>{selectedArticle.tag} • {selectedArticle.readTime}</span>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-black font-normal leading-tight">
+              <h2 id="article-modal-title" className="font-serif text-2xl sm:text-3xl md:text-4xl text-black font-normal leading-tight">
                 {selectedArticle.title}
-              </h3>
+              </h2>
             </div>
 
             <div className="space-y-4 text-sm sm:text-base text-[#444444] leading-relaxed pt-4 border-t border-black/5">

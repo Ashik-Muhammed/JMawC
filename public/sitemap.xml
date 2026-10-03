@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://jayamahesh.web.app/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     
@@ -70,10 +70,23 @@
       <image:caption>Rhythmic streaming of warm medicated oil over the forehead for insomnia and anxiety relief</image:caption>
     </image:image>
 
+    <!-- Pulse Diagnosis & Herb Preparation -->
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_doctor_pulse_reading_1790273200339.jpg</image:loc>
+      <image:title>Nadi Pariksha Ayurvedic Pulse Diagnosis Consultation</image:title>
+      <image:caption>Classical radial pulse assessment to detect doshic imbalances and bio-vitality</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://jayamahesh.web.app/images/ayurveda_herbs_preparation_1790273180890.jpg</image:loc>
+      <image:title>Classical Botanical Medicine Formulation</image:title>
+      <image:caption>Handcrafted copper vessel decoctions and medicated herbal oils</image:caption>
+    </image:image>
+
     <!-- Doctors & Therapists -->
     <image:image>
       <image:loc>https://jayamahesh.web.app/images/dr_jayalekshmi.jpg</image:loc>
-      <image:title>Dr. Jayalekshmi (M.D, B.A.M.S) - Senior Ayurvedic Doctor</image:title>
+      <image:title>Dr. Jayalekshmi (M.D, B.A.M.S) - Chief Ayurvedic Doctor</image:title>
       <image:caption>Chief Physician at Jayamahesh Ayurveda, specialist in Nadi Pariksha and classical medicine</image:caption>
     </image:image>
 

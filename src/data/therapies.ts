@@ -24,7 +24,7 @@ export const TREATMENTS: Treatment[] = [
     category: 'Longevity',
     duration: '60 - 90 Mins',
     dosha: 'Deeply Pacifies Aggravated Vata & Nourishes Dhatus',
-    image: '/images/ayurveda_pizhichil_therapy.jpg',
+    image: '/images/ayurveda_pizhichil_therapy.webp',
     shortDesc: 'Revered as the "King of Ayurvedic Therapies," warm medicated herbal oil is rhythmically squeezed from linen cloths over the entire body, restoring neuromuscular vigor and deep vitality.',
     fullDesc: 'Pizhichil is an aristocratic therapy of classical Kerala Ayurveda, historically reserved for royal dynasties. Two to four trained therapists pour steady, warm streams of herb-infused oils over the entire body using specialized linen cloths while maintaining soft, rhythmic synchronous strokes. The sustained therapeutic warmth and lipid-soluble botanical principles permeate deep cellular strata, dissolving metabolic toxins, rejuvenating depleted neuromuscular fibers, and restoring supple joint lubrication.',
     benefits: [
@@ -50,9 +50,9 @@ export const TREATMENTS: Treatment[] = [
     category: 'Mind & Sleep',
     duration: '45 - 60 Mins',
     dosha: 'Cools Aggravated Pitta & Harmonizes Vata',
-    image: '/images/ayurveda_dhara_therapy.jpg',
+    image: '/images/ayurveda_dhara_therapy.webp',
     shortDesc: 'A continuous therapeutic stream of customized herbal decoctions, medicated buttermilk (Takradhara), or herbal milk (Ksheeradhara) to cool internal heat and dissolve chronic tension.',
-    fullDesc: 'Dhara is a foundational pillar of Kerala’s classical healing arts. Tailored precisely to the patient’s constitutional and thermal state, therapeutic liquids—such as Takra (fermented buttermilk boiled with Musta and Amalaki), Ksheera (herbal milk), or Kashaya (anti-inflammatory herbal decoctions)—are poured in a continuous, measured rhythm over the forehead or affected body parts from a suspended bronze Dhara vessel. It soothes inflamed nerves, relieves stubborn dermatological imbalances like psoriasis and eczema, and dispels chronic mental agitation.',
+    fullDesc: 'Dhara is a foundational pillar of Kerala’s classical healing arts. Tailored precisely to the patient’s constitutional and thermal state, therapeutic liquids, such as Takra (fermented buttermilk boiled with Musta and Amalaki), Ksheera (herbal milk), or Kashaya (anti-inflammatory herbal decoctions), are poured in a continuous, measured rhythm over the forehead or affected body parts from a suspended bronze Dhara vessel. It soothes inflamed nerves, relieves stubborn dermatological imbalances like psoriasis and eczema, and dispels chronic mental agitation.',
     benefits: [
       'Calms internal systemic heat, inflammation, and hyperacidity',
       'Highly effective for psoriasis, eczema, and heat-induced dermatological conditions',
@@ -76,7 +76,7 @@ export const TREATMENTS: Treatment[] = [
     category: 'Mind & Sleep',
     duration: '45 - 60 Mins',
     dosha: 'Supreme Therapy for Severe Cranial & Neurological Vata',
-    image: '/images/ayurveda_shirovasthi_therapy.jpg',
+    image: '/images/ayurveda_shirovasthi_therapy.webp',
     shortDesc: 'A specialized classical Kerala therapy where warm medicated oil is held over the scalp within an open-topped leather cylinder, exerting profound healing on the brain, nerves, and sensory faculties.',
     fullDesc: 'Shirovasthi stands as one of the most potent neuro-regenerative therapies in classical Kerala Ayurveda. A cylindrical leather hat is secured closely around the guest’s head and hermetically sealed using a dough made from black gram (Masha) flour. Warm, specifically medicated herbal oils are gently poured inside and retained for a prescribed duration until physiological relaxation and subtle perspiration appear. The therapeutic hydrostatic pressure and medicinal absorption revitalize cranial nerves, nourish brain cells, and restore sensory clarity.',
     benefits: [
@@ -102,9 +102,9 @@ export const TREATMENTS: Treatment[] = [
     category: 'Longevity',
     duration: '60 - 90 Mins',
     dosha: 'Grounds Excess Vata & Revitalizes All 7 Dhatus',
-    image: '/images/ayurveda_abhyangam_therapy.jpg',
+    image: '/images/ayurveda_abhyangam_therapy.webp',
     shortDesc: 'A full-body rhythmic massage using warmed herbal oils infused with up to 40 wild botanicals, executed in seven traditional postures to clear lymphatic channels and nourish deeper tissues.',
-    fullDesc: 'Codified in the ancient Sushruta and Charaka Samhitas, Abhyangam is far more than a conventional massage—it is a sacred therapeutic immersion that lubricates the body’s internal channels (Srotas). Two synchronized Ayurvedic therapists administer warm, herb-infused oils formulated specifically to the recipient’s constitution. Through synchronized long strokes, circular friction around joints, and gentle pressure on vital Marma points, Abhyangam melts systemic rigidity, stimulates lymphatic drainage, and establishes profound grounding stillness.',
+    fullDesc: 'Codified in the ancient Sushruta and Charaka Samhitas, Abhyangam is far more than a conventional massage; it is a sacred therapeutic immersion that lubricates the body’s internal channels (Srotas). Two synchronized Ayurvedic therapists administer warm, herb-infused oils formulated specifically to the recipient’s constitution. Through synchronized long strokes, circular friction around joints, and gentle pressure on vital Marma points, Abhyangam melts systemic rigidity, stimulates lymphatic drainage, and establishes profound grounding stillness.',
     benefits: [
       'Lubricates synovial joint capsules and alleviates stiffness and muscular fatigue',
       'Enhances blood circulation and accelerates cellular metabolic waste clearance',
@@ -128,7 +128,7 @@ export const TREATMENTS: Treatment[] = [
     category: 'Pain Relief',
     duration: '60 - 75 Mins',
     dosha: 'Pacifies Aggravated Vata & Disperses Stagnant Kapha',
-    image: '/images/ayurveda_kizhi_pain_therapy_1790273225926.jpg',
+    image: '/images/ayurveda_kizhi_pain_therapy_1790273225926.webp',
     shortDesc: 'Fresh healing leaves (Elakizhi) and medicinal root powders (Podikizhi) bundled into unbleached cotton boluses, heated in herbal oil, and applied with rhythmic compression to melt joint pain.',
     fullDesc: 'Kizhi is Kerala’s classical thermal intervention for chronic musculoskeletal disorders and neuro-muscular inflammation. Freshly cut medicinal leaves (including Nirgundi, Eranda, and Arka) or finely pulverized herbal powders are bundled into unbleached linen pouches (potlis). Continuously immersed in warm anti-inflammatory herbal oils, the poultices are rhythmically patted, rolled, and pressed along tension corridors and pain epicenters. The deep penetrating heat opens micro-channels, flushes metabolic debris (Ama), and restores joint flexibility.',
     benefits: [
@@ -154,7 +154,7 @@ export const TREATMENTS: Treatment[] = [
     category: 'Pain Relief',
     duration: '45 - 60 Mins',
     dosha: 'Directly Pacifies Localized Apana Vata & Lumbar Strain',
-    image: '/images/ayurveda_kadivasthi_therapy.jpg',
+    image: '/images/ayurveda_kadivasthi_therapy.webp',
     shortDesc: 'A specialized spinal therapy where warm medicinal oil is retained in a dough dam placed over the lower back, providing profound relief for lumbar disc issues and sciatica.',
     fullDesc: 'Kadivasthi (also known as Kati Basti) is an iconic Ayurvedic treatment formulated specifically to treat afflictions of the lower spine and pelvic girdle. A leak-proof circular dam made of specially kneaded black gram (Masha) dough is constructed and secured over the lumbosacral spine (L1–S1 region). Continuously replenished, warm medicinal oils enriched with potent anti-inflammatory herbs are poured into the reservoir and retained at a steady, soothing temperature. The prolonged oil bath deeply penetrates vertebrae, rehydrates intervertebral discs, eases nerve compression, and relieves severe lumbar spasm.',
     benefits: [
@@ -180,7 +180,7 @@ export const TREATMENTS: Treatment[] = [
     category: 'Mind & Sleep',
     duration: '60 - 75 Mins',
     dosha: 'Deeply Pacifies Vata & Pitta, Restores Theta State',
-    image: '/images/ayurveda_shirodhara_therapy_1790273156341.jpg',
+    image: '/images/ayurveda_shirodhara_therapy_1790273156341.webp',
     shortDesc: 'A continuous rhythm of warm herb-infused oil poured gently over the third eye, melting chronic mental fatigue and opening avenues of serene meditation.',
     fullDesc: 'Shirodhara is celebrated worldwide as the hallmark therapy of classical Kerala Ayurveda. A specially blended, temperature-regulated stream of organic herbal oil, medicated buttermilk (Takradhara), or milk decoction (Ksheeradhara) flows steadily onto the forehead at the Ajna chakra. This gentle vibration stimulates the pineal and pituitary glands, inducing profound theta brainwave states comparable to hours of deep samadhi meditation.',
     benefits: [

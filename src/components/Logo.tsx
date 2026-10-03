@@ -19,7 +19,10 @@ export const Logo: React.FC<LogoProps> = ({ className = '', showText = true, siz
       <div className="relative overflow-hidden flex items-center justify-center shrink-0">
         <img
           src="/logo.jpg"
-          alt="Jayamahesh Ayurveda & Wellness Logo"
+          alt="Jayamahesh Ayurveda & Wellness Clinic Emblem"
+          width={48}
+          height={48}
+          decoding="async"
           className={`${imgHeights[size]} w-auto object-contain mix-blend-multiply transition-transform duration-300 hover:scale-105`}
         />
       </div>

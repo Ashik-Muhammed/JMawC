@@ -1,6 +1,63 @@
 # robots.txt for Jayamahesh Ayurveda & Wellness Clinic (https://jayamahesh.web.app/)
+# Updated: 2026-10-03
+
+# Allow standard web search engine crawlers
 User-agent: *
+Allow: /
+
+# Explicit directives for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Friendly AI & LLM Assistants (ChatGPT, Claude, Perplexity, Gemini, Apple Intelligence)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
 Allow: /
 
 # Sitemap Index
 Sitemap: https://jayamahesh.web.app/sitemap.xml
+
+# LLM Context Specification
+# https://jayamahesh.web.app/llms.txt
+# https://jayamahesh.web.app/llms-full.txt

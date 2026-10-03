@@ -175,9 +175,9 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                   <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B823D] flex items-center justify-center mb-4">
                     <MapPin size={20} />
                   </div>
-                  <h4 className="font-serif text-lg sm:text-xl font-normal text-black mb-1">
+                  <h3 className="font-serif text-lg sm:text-xl font-normal text-black mb-1">
                     Sanctuary Address
-                  </h4>
+                  </h3>
                   <p className="text-xs font-semibold text-black leading-relaxed">
                     Jayamahesh Ayurveda
                   </p>
@@ -209,9 +209,9 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                   <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B823D] flex items-center justify-center mb-4">
                     <Clock size={20} />
                   </div>
-                  <h4 className="font-serif text-lg sm:text-xl font-normal text-black mb-1">
+                  <h3 className="font-serif text-lg sm:text-xl font-normal text-black mb-1">
                     Sanctuary Hours
-                  </h4>
+                  </h3>
                   <p className="text-xs text-[#6F6F6F] leading-relaxed">
                     Monday – Sunday<br />
                     <span className="text-black font-medium">07:30 AM – 07:30 PM IST</span><br />
@@ -229,9 +229,9 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                   <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B823D] flex items-center justify-center mb-4">
                     <Phone size={20} />
                   </div>
-                  <h4 className="font-serif text-lg sm:text-xl font-normal text-black mb-1">
+                  <h3 className="font-serif text-lg sm:text-xl font-normal text-black mb-1">
                     Direct Inquiries
-                  </h4>
+                  </h3>
                   <p className="text-sm font-semibold text-black mt-1">
                     <a href="tel:+919443861260" className="hover:text-[#0B823D] transition-colors">
                       +91 94438 61260
@@ -269,9 +269,9 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                   <div className="w-10 h-10 rounded-full bg-[#25D366]/10 text-[#25D366] flex items-center justify-center mb-4">
                     <MessageCircle size={20} />
                   </div>
-                  <h4 className="font-serif text-lg sm:text-xl font-normal text-black mb-1">
+                  <h3 className="font-serif text-lg sm:text-xl font-normal text-black mb-1">
                     WhatsApp Concierge
-                  </h4>
+                  </h3>
                   <p className="text-xs text-[#6F6F6F] leading-relaxed">
                     Message us directly for consultation slots, route guidance, and treatment questions.
                   </p>
@@ -291,7 +291,7 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
             </div>
 
             {/* Interactive Map Embed */}
-            <div className="rounded-2xl overflow-hidden border border-black/10 shadow-sm bg-white">
+            <div id="location" className="rounded-2xl overflow-hidden border border-black/10 shadow-sm bg-white scroll-mt-24">
               <div className="p-3.5 sm:p-4 bg-stone-50/90 border-b border-black/5 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#0B823D] animate-pulse" />
@@ -311,7 +311,7 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
               <div className="relative h-48 sm:h-60 w-full bg-stone-100">
                 <iframe
                   title="Jayamahesh Ayurveda Location Map"
-                  src="https://www.google.com/maps/place/JayaMahesh+Ayurveda/@8.3404361,77.1536364,17z/data=!4m6!3m5!1s0x3b05abb5de58e9a9:0xe7a1f43e7d0dc5d9!8m2!3d8.3404308!4d77.1562113!16s%2Fg%2F11v5bkdzhl"
+                  src="https://maps.google.com/maps?q=8.3404308,77.1562113&hl=en&z=16&output=embed"
                   className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -320,10 +320,10 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
             </div>
 
             {/* Accordion FAQ */}
-            <div className="pt-2">
-              <h4 className="text-[10px] sm:text-xs uppercase tracking-widest text-[#6F6F6F] font-semibold mb-3 sm:mb-4">
+            <div id="faq" className="pt-2 scroll-mt-24">
+              <h3 className="text-[10px] sm:text-xs uppercase tracking-widest text-[#6F6F6F] font-semibold mb-3 sm:mb-4">
                 Frequently Addressed Inquiries
-              </h4>
+              </h3>
               <div className="space-y-2.5 sm:space-y-3">
                 {faqs.map((faq, index) => {
                   const isOpen = activeFaq === index;
@@ -356,7 +356,7 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
           </div>
 
           {/* Right Column: Direct Quick Booking / Inquiry Box */}
-          <div className="lg:col-span-6">
+          <div id="booking" className="lg:col-span-6 scroll-mt-24">
             <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-10 border border-black/10 shadow-xl lg:sticky lg:top-28">
               {!formSubmitted ? (
                 <div>

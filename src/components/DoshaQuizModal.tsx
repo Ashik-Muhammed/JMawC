@@ -142,6 +142,7 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
+      aria-labelledby="dosha-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
     >
       <div className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl p-5 sm:p-8 md:p-10 border border-black/10 max-h-[90vh] overflow-y-auto">
@@ -167,9 +168,9 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
                   Question {currentStep + 1} of {questions.length}
                 </span>
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-black">
+              <h2 id="dosha-modal-title" className="font-serif text-2xl sm:text-3xl font-normal text-black">
                 {questions[currentStep].title}
-              </h3>
+              </h2>
               <p className="text-xs sm:text-sm text-[#6F6F6F] mt-1">
                 {questions[currentStep].subtitle}
               </p>
@@ -220,9 +221,9 @@ export const DoshaQuizModal: React.FC<DoshaQuizModalProps> = ({
             <span className="inline-block px-3 py-1 rounded-full bg-[#0B823D]/10 text-[#0B823D] text-[10px] sm:text-xs font-semibold uppercase tracking-widest mb-2 sm:mb-3">
               Your Primary Doshic Imprint
             </span>
-            <h3 className="font-serif text-3xl sm:text-5xl font-normal text-black">
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-black">
               Dominant {result} Prakriti
-            </h3>
+            </h2>
             <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#6F6F6F] mt-1">
               Governed by: {doshaProfiles[result].elements}
             </p>

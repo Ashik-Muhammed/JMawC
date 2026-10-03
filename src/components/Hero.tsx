@@ -104,6 +104,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTherapies })
         <video
           ref={videoRef}
           src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_083109_283f3553-e28f-428b-a723-d639c617eb2b.mp4"
+          poster="/images/ayurveda_hero_sanctuary_1790273136594.webp"
           muted
           playsInline
           autoPlay
@@ -128,10 +129,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTherapies })
           <span>Kerala Ayurveda Sanctuary</span>
         </div>
 
-        {/* Main Headline */}
+        {/* Main Headline (Single H1) */}
         <h1
           className="font-serif font-normal text-4xl xs:text-5xl sm:text-7xl md:text-8xl max-w-7xl text-[#000000] tracking-[-1px] sm:tracking-[-2px] md:tracking-[-2.46px] leading-[1.05] sm:leading-[0.98] animate-fade-rise"
         >
+          <span className="sr-only">Jayamahesh Ayurveda &amp; Wellness Clinic: Classical Ayurvedic Treatments in Parassala, Kerala. </span>
           Healing awakened in{' '}
           <span className="italic text-[#6F6F6F] font-serif">silence,</span>
           <br className="hidden sm:inline" /> honoring{' '}
@@ -140,7 +142,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTherapies })
 
         {/* Description */}
         <p className="text-sm sm:text-base md:text-lg max-w-2xl mt-6 sm:mt-9 leading-relaxed text-[#6F6F6F] font-sans font-normal animate-fade-rise-delay">
-          Rooted in authentic Kerala lineage, Jayamahesh Ayurveda and Wellness Clinic harmonizes body, mind, and spirit through classical Ayurvedic therapies—from restorative Pizhichil and Shirodhara to Kadivasthi and herbal Kizhi—guided by sacred botanical alchemy and tranquil care.
+          Rooted in authentic Kerala lineage, Jayamahesh Ayurveda and Wellness Clinic harmonizes body, mind, and spirit through classical Ayurvedic therapies, from restorative Pizhichil and Shirodhara to Kadivasthi and herbal Kizhi, guided by sacred botanical alchemy and tranquil care.
         </p>
 
         {/* Hero CTA Buttons */}

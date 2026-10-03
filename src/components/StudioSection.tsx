@@ -20,7 +20,8 @@ export const StudioSection: React.FC<StudioSectionProps> = ({
     : TREATMENTS.filter((t) => t.category === activeCategory);
 
   return (
-    <section id="studio" className="py-16 sm:py-24 md:py-28 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full">
+    <section id="studio" className="py-16 sm:py-24 md:py-28 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full scroll-mt-20">
+      <div id="treatments" className="scroll-mt-24" />
       {/* Section Header */}
       <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-16">
         <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#6F6F6F] font-medium mb-2 sm:mb-3">
@@ -55,14 +56,18 @@ export const StudioSection: React.FC<StudioSectionProps> = ({
         {filtered.map((item) => (
           <div
             key={item.id}
-            className="group relative flex flex-col justify-between rounded-3xl overflow-hidden border border-black/8 bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5"
+            id={`treatment-${item.id}`}
+            className="group relative flex flex-col justify-between rounded-3xl overflow-hidden border border-black/8 bg-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5 scroll-mt-24"
           >
             {/* Image Container with subtle zoom */}
             <div className="relative h-64 w-full overflow-hidden bg-stone-100">
               <img
                 src={item.image}
-                alt={`${item.name} - Authentic Kerala Ayurvedic Therapy at Jayamahesh Clinic `}
+                alt={`${item.name} (${item.sanskritName}) - Authentic Kerala Ayurvedic Therapy at Jayamahesh Clinic, Parassala`}
+                width={600}
+                height={400}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
