@@ -126,7 +126,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onOpenDoshaQuiz }
                   href={item.href}
                   onClick={() => setActiveItem(item.key)}
                   className={`text-sm tracking-wide transition-colors duration-200 ${
-                    isActive || isHome
+                    isActive
                       ? 'text-[#000000] font-medium'
                       : 'text-[#6F6F6F] hover:text-[#000000]'
                   }`}

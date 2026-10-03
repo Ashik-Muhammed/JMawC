@@ -183,7 +183,7 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                   </p>
                   <p className="text-xs text-[#6F6F6F] leading-relaxed mt-0.5">
                     Temple Road, near Sree Mahadeva Temple,<br />
-                    Parassala, Kerala – 695502
+                    Parassala, Kerala - 695502
                   </p>
                   <div className="mt-2 pt-2 border-t border-black/5 text-[11px] text-[#888888] leading-tight">
                     <span>Salem - Kochi - Kanyakumari Hwy</span>
@@ -213,8 +213,8 @@ export const ReachUsSection: React.FC<ReachUsSectionProps> = ({ onOpenBooking })
                     Sanctuary Hours
                   </h3>
                   <p className="text-xs text-[#6F6F6F] leading-relaxed">
-                    Monday – Sunday<br />
-                    <span className="text-black font-medium">07:30 AM – 07:30 PM IST</span><br />
+                    Monday - Sunday<br />
+                    <span className="text-black font-medium">07:30 AM - 07:30 PM IST</span><br />
                     By Prior Appointment Only
                   </p>
                 </div>

@@ -22,7 +22,7 @@ export const App: React.FC = () => {
     if (therapyName) {
       setPreselectedTherapy(therapyName);
     } else {
-      setPreselectedTherapy('Pulse Diagnosis & General Vaidya Consultation');
+      setPreselectedTherapy('General Vaidya Consultation & Pulse Reading');
     }
     setIsBookingOpen(true);
   };

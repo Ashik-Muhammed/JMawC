@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Treatment } from '../data/therapies';
 import { X, Clock, HeartHandshake, CheckCircle2, Sparkles, ArrowRight } from 'lucide-react';
 
@@ -13,6 +13,20 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
   onClose,
   onBookNow,
 }) => {
+  useEffect(() => {
+    if (!treatment) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [treatment, onClose]);
+
   if (!treatment) return null;
 
   return (
@@ -20,6 +34,9 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
       role="dialog"
       aria-modal="true"
       aria-labelledby="treatment-modal-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
       className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
     >
       {/* Modal Container */}

@@ -126,20 +126,45 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
       }));
       setErrors({});
       setTouched({});
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = '';
+      };
     } else {
       setErrors({});
       setTouched({});
     }
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   useEffect(() => {
     if (preselectedTreatment) {
-      const match = therapiesList.find(
-        (t) =>
-          t.name.toLowerCase().includes(preselectedTreatment.toLowerCase()) ||
-          (t.shortName && t.shortName.toLowerCase() === preselectedTreatment.toLowerCase())
-      );
-      setFormData((prev) => ({ ...prev, treatment: match ? match.name : preselectedTreatment }));
+      const search = preselectedTreatment.toLowerCase();
+      const match = therapiesList.find((t) => {
+        const tName = t.name.toLowerCase();
+        const tShort = t.shortName.toLowerCase();
+        return (
+          tName.includes(search) ||
+          search.includes(tShort) ||
+          search.includes(tName) ||
+          (search.includes('pulse') && tName.includes('pulse')) ||
+          (search.includes('consultation') && tName.includes('consultation')) ||
+          (search.includes('shirodhara') && tShort === 'shirodhara') ||
+          (search.includes('dhara') && tShort === 'dhara') ||
+          (search.includes('kizhi') && tShort === 'kizhi') ||
+          (search.includes('pizhichil') && tShort === 'pizhichil') ||
+          (search.includes('abhyangam') && tShort === 'abhyangam') ||
+          (search.includes('kadivasthi') && tShort === 'kadivasthi') ||
+          (search.includes('shirovasthi') && tShort === 'shirovasthi')
+        );
+      });
+      setFormData((prev) => ({ ...prev, treatment: match ? match.name : therapiesList[0].name }));
     }
   }, [preselectedTreatment]);
 
@@ -299,6 +324,9 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({
       role="dialog"
       aria-modal="true"
       aria-labelledby="consultation-modal-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) handleResetAndClose();
+      }}
       className="fixed inset-0 z-50 flex items-center justify-center p-3 xs:p-4 sm:p-6 bg-black/60 backdrop-blur-md animate-fade-rise"
     >
       <div className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl p-5 sm:p-8 md:p-10 border border-black/10 max-h-[90vh] overflow-y-auto">
